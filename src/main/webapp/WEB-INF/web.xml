@@ -5,7 +5,111 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
          metadata-complete="false">
-
-         
+    <display-name>Struts2SchoolWeb</display-name>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+    <context-param>
+        <param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
+        <param-value>/WEB-INF/tiles.xml</param-value>
+    </context-param>
+    <filter>
+        <filter-name>struts2</filter-name>
+        <filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>struts2</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <listener>
+        <listener-class>org.apache.struts2.tiles.StrutsTilesListener
+        </listener-class>
+    </listener>
+    <listener>
+        <listener-class> org.springframework.web.context.ContextLoaderListener
+        </listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>dispatcher</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>3</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletConnectApplet</servlet-name>
+        <servlet-class>servlets.ServletConnectApplet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet>
+        <servlet-name>ServletConnectApplet2</servlet-name>
+        <servlet-class>servlets.ServletConnectApplet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>dispatcher</servlet-name>
+        <url-pattern>*.htm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletConnectApplet</servlet-name>
+        <url-pattern>/ServletConnectApplet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletConnectApplet2</servlet-name>
+        <url-pattern>/ServletConnectApplet2.strut</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>redirect.jsp</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <security-constraint>
+        <display-name>All Pages</display-name>
+        <web-resource-collection>
+            <web-resource-name>All Inner Pages</web-resource-name>
+            <description/>
+            <url-pattern>/drawingpageLink</url-pattern>
+            <!--url-pattern>/timestableLink*</url-pattern-->
+            <!--url-pattern>/randomtimestableLink</url-pattern-->
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>webuser</role-name>
+            <!--role-name>admin</role-name-->
+        </auth-constraint>
+    </security-constraint>
+    <security-constraint>
+        <display-name>Admin Pages</display-name>
+        <web-resource-collection>
+            <web-resource-name>Admin Pages</web-resource-name>
+            <description/>
+            <url-pattern>/adminemailformLink</url-pattern>
+            <url-pattern>/sendEmailFormSubmit</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>Tomcat-Advance-Authentication-Realm</realm-name>
+        <!--realm-name>Tomcat Manager Application</realm-name-->
+        <!--realm-name>myJDBCRealm</realm-name-->
+        <form-login-config>
+            <form-login-page>/loginForm.jsp</form-login-page>
+            <form-error-page>/loginError.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+    <security-role>
+        <description/>
+        <role-name>webuser</role-name>
+    </security-role>
+    <security-role>
+        <description/>
+        <role-name>admin</role-name>
+    </security-role>
 </web-app>
 

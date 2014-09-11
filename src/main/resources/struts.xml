@@ -1,0 +1,84 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <constant name="struts.action.excludePattern" value="/ServletConnectApplet2.strut*" />  
+    <!--constant name="struts.custom.i18n.resources"
+		value="ApplicationResources" /--> 
+    <package name="default" extends="struts-default">
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+        <action name="*Link" class="actions.LinkAction" method="{1}"  >
+            <result name="welcome" type="tiles">welcome</result>
+            <result name="friends" type="tiles">friends</result>
+            <result name="office" type="tiles">office</result>
+            <result name="index" type="tiles">index</result>
+            <result name="drawingpage" type="tiles">drawingpage</result>
+            <result name="timestable" type="tiles">timestable</result>
+            <result name="randomtimestable" type="tiles">randomtimestable</result>
+            <result name="persistanceForm" type="tiles">persistanceForm</result>
+            <result name="login" type="tiles">login</result>
+            <result name="adminemailform" type="tiles">adminemailform</result>
+            <result name="privacyLegal" type="tiles">privacyLegal</result>
+            <result name="license" type="tiles">license</result>
+        </action>
+        <action name="ActionSupportTimesTable2" class="actions.ActionSupportTimesTable2" >
+	    <interceptor-ref name="exception"/>
+            <interceptor-ref name="i18n"/>
+            <interceptor-ref name="params">
+                <param name="excludeParams">dojo\..*,^struts\..*</param>
+            </interceptor-ref>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <result name="success" type="tiles">timesTableView</result>
+        </action>
+        
+	<action name="ActionSupportTestPersistance" class="actions.ActionSupportTestPersistance" >
+            <result name="success" type="tiles">persistanceResultView</result>
+            <result name="failure" type="tiles">persistanceForm</result>
+        </action>
+        
+        <action name="RandomTimesTable" class="actions.RandomTimesTableAction" >
+            <result name="success" type="tiles">timesTableView</result>
+            <result name="not_authenticated" type="tiles">authMessage</result>
+        </action>
+        
+        <action name="loginSubmit" class="actions.LoginAction" >
+            <result name="success" type="tiles">authMessage</result>
+            <result name="fail" type="tiles">authMessage</result>
+        </action>
+        
+        <action name="logoutClicked" class="actions.LogoutAction" >
+            <result name="success" type="tiles">authMessage</result>
+            <result name="fail" type="tiles">authMessage</result>
+        </action>        
+
+        <action name="sendEmailFormSubmit" class="actions.AdminEmailSendAction" >
+	    <interceptor-ref name="exception"/>
+            <interceptor-ref name="i18n"/>
+            <interceptor-ref name="fileUpload">
+       		<param name="allowedTypes">text/html</param>
+       		<param name="maximumSize">10240</param>
+  	    </interceptor-ref> 
+            <interceptor-ref name="params">
+                <param name="excludeParams">dojo\..*,^struts\..*</param>
+            </interceptor-ref>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <result name="input" type="tiles">adminemailform</result>
+            <result name="success" type="tiles">mailConfirmation</result>
+            <result name="fail" type="tiles">authMessage</result>
+        </action>          
+                        
+    </package>  
+</struts>

@@ -1,0 +1,158 @@
+body {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size:100.1%;
+    color:#000000;
+    background:#EEEEEE;
+}
+div .footer_text {
+    font-size : 65%;
+}
+a {
+    text-decoration: none;
+    font-weight: bold;
+    outline: none;
+}
+a:visited {
+}
+a:active {
+}
+a:hover {
+    text-decoration: underline;
+}
+strong, b {
+    font-weight: bold;
+}
+hr {
+    margin: 0px; 
+    color: #ccc; 
+    background-color: #ccc;
+    height: 1px;
+}
+p {
+    font-size: 90%;
+    line-height: 1.1em;
+    margin-top: 1em;
+    margin-bottom: 0.75em;
+    margin-left: 0.25em;
+}
+li {
+    font-size: 90%;
+    line-height: 1.1em;
+    margin-top: 0.3em;
+    margin-bottom: 0.2em; 
+}
+ul {
+    margin-top: 1.0em;
+    margin-bottom: 1.0em; 
+}
+td {
+    font-size: 90%;
+}
+hr {
+    margin-top: 2.0em;
+    margin-bottom: 2.0em;
+}
+img {
+    border: 0;
+}
+div {
+    margin:0;
+}
+* html {
+    overflow: hidden;
+    width: 100%;
+    overflow: visible;
+    width: auto;
+    height: 1px;
+    word-wrap: normal;
+}
+#cssWrapper {
+    position:relative;
+    min-width:400px;
+    width:84%;
+    height:100%;
+    margin-top:0px;
+    margin-bottom:20px;
+    margin-left:auto;
+    margin-right:auto;
+}
+.cssHeader {
+    text-align:center;
+    min-height:30px;
+    width:98.2%;
+}
+#cssHeader1{
+    border-left:1px solid #000000;
+    border-top:1px solid #000000;
+    border-right:1px solid #000000;
+    background:#5AFE73;
+    height:60px;
+}
+#cssHeader2{
+    border-left:1px solid #000000;
+    border-bottom:0px solid #000000;
+    border-right:1px solid #000000;
+    background:#FFE7AA;
+}
+.cssGap {
+    clear:both;
+    min-height:0px;
+    height:0px;
+    width:100%;
+}
+.cssCenter {
+    overflow-y:hidden;
+    width:100%;
+    float:left;
+    text-align:left;
+    min-height:400px;
+    height:600px;
+}
+#cssLeft {
+    border-left:1px solid #000000;
+    border-top:1px solid #000000;
+    border-bottom:1px solid #000000;
+    margin-left:0px;
+    min-width:16%;
+    width:18%;
+    background:#FFCCCC;
+}
+#cssBody {
+    overflow-y:scroll;
+    border:1px solid #000000;
+    min-height:400px;
+    min-width:50%;
+    width:62%;
+    background:#ADD8E6;
+}
+#cssRight {
+    border-right:1px solid #000000;
+    border-top:1px solid #000000;
+    border-bottom:1px solid #000000;
+    min-width:16%;
+    width:18%;
+    background:#FFCCCC;
+}
+.cssFooter {
+    clear:both;
+    float:none;
+    text-align:center;
+    min-height:30px;
+    width:98.2%;
+}
+#cssFooter2 {
+    border-right:1px solid #000000;
+    border-top:0px solid #000000;
+    border-left:1px solid #000000;
+    background:#FFE7AA;
+}
+#cssFooter1 {
+    border-right:1px solid #000000;
+    border-bottom:1px solid #000000;
+    border-left:1px solid #000000;
+    background:#5AFE73;
+}
+.vertical-middle {
+    display:inline-block;
+    vertical-align:middle;
+}

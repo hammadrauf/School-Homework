@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE tiles-definitions PUBLIC
+"-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+ 
+<tiles-definitions>
+ 
+<definition name="baseLayout" template="/baseLayout2.jsp">
+<put-attribute name="title"  value="Template"/>
+<put-attribute name="header" value="/header.jsp"/>
+<put-attribute name="menu"   value="/menu.jsp"/>
+<put-attribute name="body"   value="/body.jsp"/>
+<put-attribute name="footer"   value="/footer.jsp"/>
+<put-attribute name="loginbar"   value="/loginbar.jsp"/>
+</definition>
+ 
+<definition name="welcome" extends="baseLayout">
+<put-attribute name="title"  value="Welcome"/>
+<put-attribute name="body"   value="/welcome.jsp"/>      
+</definition>
+ 
+<definition name="friends" extends="baseLayout">
+<put-attribute name="title"  value="Friends"/>
+<put-attribute name="body"   value="/friends.jsp"/>      
+</definition>
+ 
+<definition name="office" extends="baseLayout">
+<put-attribute name="title"  value="Office"/>
+<put-attribute name="body"   value="/office.jsp"/>      
+</definition>
+ 
+ <definition name="index" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/index.jsp"/>      
+</definition>
+ 
+  <definition name="drawingpage" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/pages/drawingpage.jsp"/>      
+</definition>
+
+  <definition name="timesTableView" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/pages/TimesTableView.jsp"/>      
+</definition>
+
+  <definition name="timestable" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/pages/timestable.jsp"/>      
+</definition>
+
+  <definition name="randomtimestable" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/pages/randomtimestable.jsp" />      
+</definition>
+
+<definition name="randomttView" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/pages/TimesTableView.jsp"/>      
+</definition>
+
+<definition name="persistanceForm" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/persistanceForm.jsp"/>      
+</definition>
+
+<definition name="persistanceResultView" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/PersistanceResultView.jsp"/>      
+</definition>
+
+<definition name="authMessage" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/authMessage.jsp"/>      
+</definition>
+
+<definition name="login" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="loginbar"   value="Login Page"/>
+<put-attribute name="body"   value="/loginForm.jsp"/>      
+</definition>
+
+<definition name="adminemailform" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/adminpages/AdminEmailForm.jsp"/>      
+</definition>
+
+<definition name="mailConfirmation" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/adminpages/mailConfirmation.jsp"/>      
+</definition>
+
+<definition name="privacyLegal" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/legalAndPrivacy.jsp"/>      
+</definition>
+
+<definition name="license" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/license.jsp"/>      
+</definition>
+
+</tiles-definitions>
