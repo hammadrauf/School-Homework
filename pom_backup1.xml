@@ -126,69 +126,9 @@
 	<artifactId>slf4j-log4j12</artifactId>
 	<version>1.5.11</version>
     </dependency>
+
 	</dependencies>
-        
-  <build> <!-- http://www.manydesigns.com/en/portofino/portofino3/tutorials/using-maven-profiles-and-resource-filtering/#TOC-Resource-filtering -->
-    <!--finalName>myWebApp</finalName-->
-    <plugins>
-      <!-- Enabling and configuring regular resources filtering.
-           See also section "resources" below -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-resources-plugin</artifactId>
-        <version>2.4</version>
-        <configuration>
-          <!-- specify UTF-8, ISO-8859-1 or any other file encoding -->
-          <encoding>UTF-8</encoding>
-        </configuration>
-      </plugin>
-        <!-- Enabling and configuring web resources filtering -->
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>2.1.1</version>
-        <configuration>
-          <webResources>
-            <resource>
-              <filtering>true</filtering>
-              <directory>src/main/webapp</directory>
-              <includes>
-                <include>**/*.css</include>
-                <!-- include any other file types you want to filter -->
-              </includes>
-            </resource>
-          </webResources>
-        </configuration>
-      </plugin>
-    </plugins>
-    <!-- Instructing the resources plugin to filter certain directories -->
-    <resources>
-      <resource>
-        <directory>src/main/resources</directory>
-        <filtering>true</filtering>
-      </resource>
-    </resources>
-  </build>
-  
-  <!-- Profiles start here -->
-        
 	<profiles>
-            
-      <profile>
-      <id>development</id>
-      <properties>
-        <db.driverClass>com.mysql.jdbc.Driver</db.driverClass>
-        <db.connectionURL>jdbc:mysql://localhost:3306/schoolwebdb</db.connectionURL>
-        <db.username>schoolwebuser</db.username>
-        <db.password>abcdef12</db.password>
-        <logs.location>/home/super/Logs/</logs.location>
-        <logs.fileName>LogsSchoolHomework</logs.fileName>
-        <logs.logLevel>INFO</logs.logLevel>
-        <logo.image></logo.image>
-      </properties>
-    </profile>
-            
-            
 		<profile>
 			<!-- When built in OpenShift the 'openshift' profile will be used when 
 				invoking mvn. -->
@@ -210,17 +150,7 @@
 						</configuration>
 					</plugin>
 				</plugins>
-                        </build>
-                                                       <properties>
-                                    <db.driverClass>com.mysql.jdbc.Driver</db.driverClass>
-                                    <db.connectionURL>OPENSHIFT_MYSQL_DB_URL</db.connectionURL>
-                                    <db.username>schoolwebuser</db.username>
-                                    <db.password>abcdef89</db.password>
-                                    <logs.location>$OPENSHIFT_HOMEDIR//logs/</logs.location>
-                                    <logs.fileName>LogsSchoolHomework</logs.fileName>
-                                    <logs.logLevel>INFO</logs.logLevel>
-                                    <logo.image></logo.image>
-                                </properties>
+			</build>
 		</profile>
 	</profiles>
 </project>

@@ -8,10 +8,10 @@
     <class>dbbeans.Roles</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/schoolwebdb"/>
-      <property name="javax.persistence.jdbc.password" value="abcdef12"/>
-      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.user" value="schoolwebuser"/>
+      <property name="javax.persistence.jdbc.url" value="${db.connectionURL}"/>
+      <property name="javax.persistence.jdbc.password" value="${db.password}"/>
+      <property name="javax.persistence.jdbc.driver" value="${db.driverClass}"/>
+      <property name="javax.persistence.jdbc.user" value="${db.username}"/>
     </properties>
   </persistence-unit>
 </persistence>
