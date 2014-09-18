@@ -213,7 +213,7 @@
                         </build>
                                                        <properties>
                                     <db.driverClass>com.mysql.jdbc.Driver</db.driverClass>
-                                    <db.connectionURL>jdbc:mysql://$OPENSHIFT_MYSQL_DB_HOST:3306/schoolwebdb</db.connectionURL>
+                                    <db.connectionURL>jdbc:mysql://127.7.92.130:3306/schoolwebdb</db.connectionURL>
                                     <db.username>schoolwebuser</db.username>
                                     <db.password>abcdef89</db.password>
                                     <logs.location>$OPENSHIFT_HOMEDIR//logs/</logs.location>
