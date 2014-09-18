@@ -182,7 +182,7 @@
         <db.username>schoolwebuser</db.username>
         <db.password>abcdef12</db.password>
         <logs.location>/home/super/Logs/</logs.location>
-        <logs.fileName>LogsSchoolHomework</logs.fileName>
+        <logs.fileName>LogsSchoolHomework.log</logs.fileName>
         <logs.logLevel>INFO</logs.logLevel>
         <logo.image></logo.image>
       </properties>
@@ -213,11 +213,11 @@
                         </build>
                                                        <properties>
                                     <db.driverClass>com.mysql.jdbc.Driver</db.driverClass>
-                                    <db.connectionURL>OPENSHIFT_MYSQL_DB_URL</db.connectionURL>
+                                    <db.connectionURL>$OPENSHIFT_MYSQL_DB_URL</db.connectionURL>
                                     <db.username>schoolwebuser</db.username>
                                     <db.password>abcdef89</db.password>
                                     <logs.location>$OPENSHIFT_HOMEDIR//logs/</logs.location>
-                                    <logs.fileName>LogsSchoolHomework</logs.fileName>
+                                    <logs.fileName>LogsSchoolHomework.log</logs.fileName>
                                     <logs.logLevel>INFO</logs.logLevel>
                                     <logo.image></logo.image>
                                 </properties>
