@@ -20,5 +20,5 @@
 --%>
 <div class="footer_text" align="center">
     <a href="http://www.sourceforge.net/projects/schoolhomework/">Source Code</a>&nbsp;
-    <a href="privacyLegalLink">Privacy & Legal</a>&nbsp;
-    Administrator & developer: Hammad Rauf, Toronto, ON, Canada</div>
+    <a href="privacyLegalLink">Privacy & Legal</a>&nbsp;&nbsp;
+    Site developed & maintained by: Hammad Rauf, Toronto, ON, Canada</div>
