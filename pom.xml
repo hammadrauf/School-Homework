@@ -218,7 +218,7 @@
                                     <db.password>abcdef89</db.password>
                                     <logs.location>/var/lib/openshift/54105d5fe0b8cd569a000153/app-root/logs/</logs.location>
                                     <logs.fileName>LogsSchoolHomework.log</logs.fileName>
-                                    <logs.logLevel>INFO</logs.logLevel>
+                                    <logs.logLevel>CONFIG</logs.logLevel>
                                     <logo.image></logo.image>
                                 </properties>
 		</profile>
