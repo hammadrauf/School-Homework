@@ -8,6 +8,10 @@
 	   userRoleTable="users_roles" roleNameCol="idroles" /-->
 	<Realm className="org.apache.catalina.realm.JDBCRealm"
            driverName="com.mysql.jdbc.Driver"
+	   <!--
+            connectionURL="jdbc:mysql://localhost:3306/schoolwebdb?user=schoolwebuser&amp;password=abcdef12"
+           connectionURL="jdbc:mysql://${env.OPENSHIFT_MYSQL_DB_HOST}:${env.OPENSHIFT_MYSQL_DB_PORT}/schoolwebdb?user=${db.username}&amp;password=${db.password}"
+            -->
            connectionURL="${db.connectionURL}?user=${db.username}&amp;password={db.password}"
 	   userTable="users" userNameCol="username" userCredCol="password"
 	   userRoleTable="users_roles" roleNameCol="idroles" />
