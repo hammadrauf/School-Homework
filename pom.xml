@@ -211,14 +211,14 @@
 					</plugin>
 				</plugins>
                         </build>
-                                                       <properties>
+                                <properties>
                                     <db.driverClass>com.mysql.jdbc.Driver</db.driverClass>
                                     <db.connectionURL>jdbc:mysql://127.7.92.130:3306/schoolwebdb</db.connectionURL>
                                     <db.username>schoolwebuser</db.username>
                                     <db.password>abcdef89</db.password>
                                     <logs.location>/var/lib/openshift/54105d5fe0b8cd569a000153/app-root/logs/</logs.location>
                                     <logs.fileName>LogsSchoolHomework.log</logs.fileName>
-                                    <logs.logLevel>CONFIG</logs.logLevel>
+                                    <logs.logLevel>TRACE</logs.logLevel>
                                     <logo.image></logo.image>
                                 </properties>
 		</profile>
