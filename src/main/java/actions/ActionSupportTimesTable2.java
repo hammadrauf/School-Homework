@@ -126,6 +126,7 @@ public class ActionSupportTimesTable2 extends ActionSupport {
         // step 2
         ServletContext sc = ServletActionContext.getServletContext();
         String FilePath = sc.getRealPath("/");
+        FilePath = "/tmp/";
         Logger.getLogger(actions.ActionSupportTimesTable2.class.getName()).log(Level.INFO, "ActionSupportTimesTable2 > generatePDF > ServletContextPath = " + ((FilePath==null)?"empty":FilePath));
         String outPath = (FilePath==null)?"temp/" + FNAME:FilePath + "temp/" + FNAME;
         String pathForJavaScript = "./" + "temp/" + FNAME;
