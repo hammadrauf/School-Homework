@@ -21,17 +21,6 @@
 package actions;
 
 import com.itextpdf.text.Chunk;
-import com.opensymphony.xwork2.ActionSupport;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import org.apache.struts2.ServletActionContext;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
-
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.PageSize;
@@ -40,12 +29,22 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.opensymphony.xwork2.ActionSupport;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
-import model.CodeAndValue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import model.CodeAndValue;
 import model.TTModel;
+import org.apache.struts2.ServletActionContext;
 import util.ParseSequence;
 import util.QuestionData;
 
@@ -126,7 +125,7 @@ public class ActionSupportTimesTable2 extends ActionSupport {
         // step 2
         ServletContext sc = ServletActionContext.getServletContext();
         String FilePath = sc.getRealPath("/");
-        FilePath = "/";
+        FilePath = sc.getRealPath(File.separator+"WEB-INF"+File.separator);
         String outPath = (FilePath==null)?"tmp/" + FNAME:FilePath + "tmp/" + FNAME;
         Logger.getLogger(actions.ActionSupportTimesTable2.class.getName()).log(Level.INFO, "ActionSupportTimesTable2 > generatePDF > ServletContextPath (outPath) = " + ((outPath==null)?"empty":outPath));
         String pathForJavaScript = "/" + "tmp/" + FNAME;
