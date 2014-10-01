@@ -41,6 +41,8 @@ public class ServletPDFTimesTable2 extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ServletPDFTimesTable2 at " + request.getContextPath() + "</h1>");
+            out.println("<p> Sequence = "+request.getAttribute("Sequence")+"<br/>");
+            out.println("Show Answers = "+request.getAttribute("ShowAnswers")+"</p>");
             out.println("</body>");
             out.println("</html>");
         } finally {

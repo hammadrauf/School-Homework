@@ -92,6 +92,8 @@ public class ActionSupportTimesTable2 extends ActionSupport {
      //  answers = Boolean.parseBoolean(request.getParameter("answers"));
         answers = Boolean.parseBoolean(ttModel.getAnswers());
 
+        
+// -- Move all of following to ServletPDF        
         request.setAttribute("SillyMesg", "I am in here!");
         request.setAttribute("ShowAnswers", answers);
 /*        
@@ -113,6 +115,7 @@ public class ActionSupportTimesTable2 extends ActionSupport {
        //ByteArrayOutputStream baos = new ByteArrayOutputStream();
 //        String fpath = generatePDF(false, answers, oneDataList, baos);
         String fpath = "/ServletPDFTimesTable2.strut";
+        fpath = fpath+"?Sequence="+seq+"&ShowAnswers="+answers;
         request.setAttribute("filePathForJavaScript", fpath);
         return ("success");
 /*        
