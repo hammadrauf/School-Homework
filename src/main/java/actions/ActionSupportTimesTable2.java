@@ -30,9 +30,11 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.opensymphony.xwork2.ActionSupport;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -99,13 +101,51 @@ public class ActionSupportTimesTable2 extends ActionSupport {
         request.setAttribute("Table4", generateTable(n4));
         request.setAttribute("Table5", generateTable(n5));
 */
-           ParseSequence ps = new ParseSequence("(?<numbers>[\\d]{1,2})");
-           ArrayList<Integer> oneDataList = ps.matchIntAllCapturingGroups(seq);
+        ParseSequence ps = new ParseSequence("(?<numbers>[\\d]{1,2})");
+        ArrayList<Integer> oneDataList = ps.matchIntAllCapturingGroups(seq);
 
              //String fpath = generatePDF(false, answers, n1, n2, n3, n4, n5);
-             String fpath = generatePDF(false, answers, oneDataList);
+/*
+           String fpath = generatePDF(false, answers, oneDataList);
              request.setAttribute("filePathForJavaScript", fpath);
              return ("success");
+*/
+       //ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//        String fpath = generatePDF(false, answers, oneDataList, baos);
+        String fpath = "/ServletPDFTimesTable2.strut";
+        request.setAttribute("filePathForJavaScript", fpath);
+        return ("success");
+/*        
+        // step 1
+            Document document = new Document();
+            // step 2
+            
+            PdfWriter.getInstance(document, baos);
+            // step 3
+            document.open();
+            // step 4
+            document.add(new Paragraph(String.format(
+                "You have submitted the following text using the %s method:",
+                request.getMethod())));
+            document.add(new Paragraph(text));
+            // step 5
+            document.close();
+ 
+            // setting some response headers
+            response.setHeader("Expires", "0");
+            response.setHeader("Cache-Control",
+                "must-revalidate, post-check=0, pre-check=0");
+            response.setHeader("Pragma", "public");
+            // setting the content type
+            response.setContentType("application/pdf");
+            // the contentlength
+            response.setContentLength(baos.size());
+            // write ByteArrayOutputStream to the ServletOutputStream
+            OutputStream os = response.getOutputStream();
+            baos.writeTo(os);
+            os.flush();
+            os.close();
+*/
          }
     /*  
      public String execute() throws Exception {
@@ -117,7 +157,7 @@ public class ActionSupportTimesTable2 extends ActionSupport {
         return util.QuestionData.generateTimesTable(numb, 12);
     }
 
-    private String generatePDF(boolean borders, boolean ans, ArrayList<Integer> numbs)
+    private String generatePDF(boolean borders, boolean ans, ArrayList<Integer> numbs, ByteArrayOutputStream baos)
             throws DocumentException, IOException {
        // int[] numbs = {n1, n2, n3, n4, n5};
         // step 1
@@ -130,7 +170,8 @@ public class ActionSupportTimesTable2 extends ActionSupport {
         Logger.getLogger(actions.ActionSupportTimesTable2.class.getName()).log(Level.INFO, "ActionSupportTimesTable2 > generatePDF > ServletContextPath (outPath) = " + ((outPath==null)?"empty":outPath));
         //String pathForJavaScript = "/" + "temp/" + FNAME;
         String pathForJavaScript = "/" + "temp/" + FNAME;
-        PdfWriter.getInstance(document, new FileOutputStream(outPath));
+//      PdfWriter.getInstance(document, new FileOutputStream(outPath));
+        PdfWriter.getInstance(document, baos);
         // step 3
         document.open();
         // step 4

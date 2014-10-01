@@ -3,7 +3,8 @@
 "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <constant name="struts.action.excludePattern" value="/ServletConnectApplet2.strut*" />  
+    <constant name="struts.action.excludePattern" value="/Servlet*.strut*" />
+    <!--constant name="struts.action.excludePattern" value="/ServletPDFTimesTable2.strut*" /-->  
     <!--constant name="struts.custom.i18n.resources"
 		value="ApplicationResources" /--> 
     <package name="default" extends="struts-default">

@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<web-app version="3.0"
-         xmlns="http://java.sun.com/xml/ns/javaee"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
-         metadata-complete="false">
+<web-app metadata-complete="false" version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <display-name>Struts2SchoolWeb</display-name>
     <context-param>
         <param-name>contextConfigLocation</param-name>
@@ -44,6 +39,18 @@
         <servlet-name>ServletConnectApplet2</servlet-name>
         <servlet-class>servlets.ServletConnectApplet2</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletPDFTimesTable2</servlet-name>
+        <servlet-class>servlets.ServletPDFTimesTable2</servlet-class>
+        <init-param>
+            <param-name>param1</param-name>
+            <param-value>value1</param-value>
+        </init-param>
+        <init-param>
+            <param-name>param2</param-name>
+            <param-value>value2</param-value>
+        </init-param>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -55,6 +62,10 @@
     <servlet-mapping>
         <servlet-name>ServletConnectApplet2</servlet-name>
         <url-pattern>/ServletConnectApplet2.strut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletPDFTimesTable2</servlet-name>
+        <url-pattern>/ServletPDFTimesTable2.strut</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -112,4 +123,3 @@
         <role-name>admin</role-name>
     </security-role>
 </web-app>
-
