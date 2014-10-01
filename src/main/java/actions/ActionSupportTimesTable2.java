@@ -35,6 +35,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -116,7 +117,9 @@ public class ActionSupportTimesTable2 extends ActionSupport {
 //        String fpath = generatePDF(false, answers, oneDataList, baos);
         String fpath = "/ServletPDFTimesTable2.strut";
         fpath = fpath+"?Sequence="+seq+"&ShowAnswers="+answers;
-        request.setAttribute("filePathForJavaScript", fpath);
+        URI uri = new URI(fpath);
+        String upath = uri.toASCIIString();
+        request.setAttribute("filePathForJavaScript", upath);
         return ("success");
 /*        
         // step 1
