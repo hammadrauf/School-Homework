@@ -43,6 +43,10 @@
         <servlet-name>ServletPDFTimesTable2</servlet-name>
         <servlet-class>servlets.ServletPDFTimesTable2</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ServletPDFRTimesTable</servlet-name>
+        <servlet-class>servlets.ServletPDFRTimesTable</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>*.htm</url-pattern>
@@ -58,6 +62,10 @@
     <servlet-mapping>
         <servlet-name>ServletPDFTimesTable2</servlet-name>
         <url-pattern>/ServletPDFTimesTable2.strut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletPDFRTimesTable</servlet-name>
+        <url-pattern>/ServletPDFRTimesTable.strut</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

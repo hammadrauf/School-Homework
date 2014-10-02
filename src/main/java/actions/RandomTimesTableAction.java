@@ -37,6 +37,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
@@ -71,13 +72,13 @@ public class RandomTimesTableAction extends ActionSupport {
 
         String seq = request.getParameter("sequence");
         int howmany = Integer.parseInt(request.getParameter("howmany"));
-        /*
-        if(request.getRemoteUser()==null) {
-            request.setAttribute("authenticationMessage", "Authentication is required to view this resource.");
-            return("not_authenticated");
-        }
-        */
+   
+        String fpath = "/ServletPDFRTimesTable.strut";
+        fpath = fpath + "?Sequence="+ URLEncoder.encode(seq, "UTF-8") + "&HowMany" + URLEncoder.encode(String.valueOf(howmany), "UTF-8");
+        request.setAttribute("filePathForJavaScript", fpath);
+        return ("success");
         
+/*        
         request.setAttribute("SillyMesg", "I am in here!");
         request.setAttribute("Sequence", seq);
         request.setAttribute("HowMany", howmany);
@@ -85,6 +86,7 @@ public class RandomTimesTableAction extends ActionSupport {
         String fpath = generatePDF(true, false, seq, howmany);
         request.setAttribute("filePathForJavaScript", fpath);
         return ("success");
+*/
     }
 
     private ArrayList<util.QuestionData> generateQuestions(ArrayList<Integer> li, int howmany) {
