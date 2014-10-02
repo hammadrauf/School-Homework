@@ -64,15 +64,19 @@ public class ServletPDFTimesTable2 extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, DocumentException, IOException {
+            throws ServletException, IOException {
 
         String seq = request.getParameter("Sequence");
         boolean answers = Boolean.parseBoolean(request.getParameter("ShowAnswers"));
         ParseSequence ps = new ParseSequence("(?<numbers>[\\d]{1,2})");
         ArrayList<Integer> oneDataList = ps.matchIntAllCapturingGroups(seq);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        generatePDF(false, answers, oneDataList, baos);
-
+        try {
+            generatePDF(false, answers, oneDataList, baos);
+        }
+        catch(DocumentException e) {
+            throw new IOException(e.getMessage());
+        }
         response.setHeader("Expires", "0");
         response.setHeader("Cache-Control",
                 "must-revalidate, post-check=0, pre-check=0");
