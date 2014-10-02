@@ -118,7 +118,7 @@ public class ActionSupportTimesTable2 extends ActionSupport {
 //        String fpath = generatePDF(false, answers, oneDataList, baos);
         String fpath = "/ServletPDFTimesTable2.strut";
         //fpath = fpath+"?Sequence="+seq+"&ShowAnswers="+answers;
-        fpath = fpath + "?"+ URLEncoder.encode("Sequence="+seq, "UTF-8") + "&" + URLEncoder.encode("ShowAnswers="+answers, "UTF-8");
+        fpath = fpath + "?Sequence="+ URLEncoder.encode(seq, "UTF-8") + "&ShowAnswers=" + URLEncoder.encode(String.valueOf(answers), "UTF-8");
         request.setAttribute("filePathForJavaScript", fpath);
         return ("success");
 /*        
