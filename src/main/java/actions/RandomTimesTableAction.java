@@ -63,7 +63,7 @@ public class RandomTimesTableAction extends ActionSupport {
         int howmany = Integer.parseInt(request.getParameter("howmany"));
    
         String fpath = "/ServletPDFRTimesTable.strut";
-        fpath = fpath + "?Sequence="+ URLEncoder.encode(seq, "UTF-8") + "&HowMany" + URLEncoder.encode(String.valueOf(howmany), "UTF-8");
+        fpath = fpath + "?Sequence="+ URLEncoder.encode(seq, "UTF-8") + "&HowMany=" + URLEncoder.encode(String.valueOf(howmany), "UTF-8");
         request.setAttribute("filePathForJavaScript", fpath);
         return ("success");
         
