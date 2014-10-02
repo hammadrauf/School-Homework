@@ -70,9 +70,10 @@ public class ServletPDFTimesTable2 extends HttpServlet {
         boolean answers = Boolean.parseBoolean(request.getParameter("ShowAnswers"));
         ParseSequence ps = new ParseSequence("(?<numbers>[\\d]{1,2})");
         ArrayList<Integer> oneDataList = ps.matchIntAllCapturingGroups(seq);
+        String domain = request.getServerName();        
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {
-            generatePDF(false, answers, oneDataList, baos);
+            generatePDF(false, answers, oneDataList, baos, domain);
         }
         catch(DocumentException e) {
             throw new IOException(e.getMessage());
@@ -92,7 +93,7 @@ public class ServletPDFTimesTable2 extends HttpServlet {
         os.close();      
     }
     
-    private void generatePDF(boolean borders, boolean ans, ArrayList<Integer> numbs, ByteArrayOutputStream baos)
+    private void generatePDF(boolean borders, boolean ans, ArrayList<Integer> numbs, ByteArrayOutputStream baos, String domain)
             throws DocumentException, IOException {
        // int[] numbs = {n1, n2, n3, n4, n5};
         // step 1
@@ -103,7 +104,7 @@ public class ServletPDFTimesTable2 extends HttpServlet {
         // step 3
         document.open();
         // step 4
-        document.add(new Paragraph("StrutsSchoolWeb - Times Table"));
+        document.add(new Paragraph("SchoolHomeworkWeb - Times Table - "+ domain));
         document.add(new Paragraph(new Date().toString()));
         document.add(Chunk.NEWLINE);
 

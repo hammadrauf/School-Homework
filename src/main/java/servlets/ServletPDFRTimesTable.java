@@ -68,26 +68,9 @@ public class ServletPDFRTimesTable extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-/*
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ServletRTimesTable</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ServletRTimesTable at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
-        }
-*/
         
-        String seq = request.getParameter("sequence");
-        int howmany = Integer.parseInt(request.getParameter("howmany"));
+        String seq = request.getParameter("Sequence");
+        int howmany = Integer.parseInt(request.getParameter("HowMany"));
         String domain = request.getServerName();
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         try {        
@@ -133,18 +116,11 @@ public class ServletPDFRTimesTable extends HttpServlet {
         // step 1
         Document document = new Document(PageSize.LETTER);
         // step 2
-/*
-        ServletContext sc = ServletActionContext.getServletContext();
-        String FilePath = sc.getRealPath("/");
-        String outPath = (FilePath==null)?"temp/" + FNAME:FilePath + "temp/" + FNAME;
-        String pathForJavaScript = "./" + "temp/" + FNAME;
-        PdfWriter.getInstance(document, new FileOutputStream(outPath));
-*/
         PdfWriter.getInstance(document, baos);
         // step 3
         document.open();
         // step 4
-        document.add(new Paragraph("SchoolHomework - Random Multiplication Questions - "+domain));
+        document.add(new Paragraph("SchoolHomeworkWeb - Random Questions - "+domain));
         document.add(new Paragraph(new Date().toString()));
         document.add(Chunk.NEWLINE);
         //document.add(new Paragraph("Seq:"+seq));
