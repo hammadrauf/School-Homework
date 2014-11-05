@@ -18,6 +18,7 @@
             <result name="index" type="tiles">index</result>
             <result name="drawingpage" type="tiles">drawingpage</result>
             <result name="timestable" type="tiles">timestable</result>
+            <result name="timestable" type="tiles">countingtable</result>
             <result name="randomtimestable" type="tiles">randomtimestable</result>
             <result name="persistanceForm" type="tiles">persistanceForm</result>
             <result name="login" type="tiles">login</result>
@@ -39,7 +40,22 @@
             </interceptor-ref>
             <result name="success" type="tiles">timesTableView</result>
         </action>
-        
+
+        <action name="ActionSupportCountingTables" class="actions.ActionSupportCountingTables" >
+	    <interceptor-ref name="exception"/>
+            <interceptor-ref name="i18n"/>
+            <interceptor-ref name="params">
+                <param name="excludeParams">dojo\..*,^struts\..*</param>
+            </interceptor-ref>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <result name="success" type="tiles">timesTableView</result>
+        </action>
+
 	<action name="ActionSupportTestPersistance" class="actions.ActionSupportTestPersistance" >
             <result name="success" type="tiles">persistanceResultView</result>
             <result name="failure" type="tiles">persistanceForm</result>

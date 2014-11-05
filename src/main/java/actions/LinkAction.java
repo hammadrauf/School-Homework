@@ -56,6 +56,10 @@ public class LinkAction extends ActionSupport {
     public String timestable() {
         return "timestable";
     }
+    
+    public String countingtable() {
+        return "countingtable";
+    }
 
     public String randomtimestable() {
         return "randomtimestable";

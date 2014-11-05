@@ -143,7 +143,11 @@ toggleMenu.addEvent(window, 'load', function(){toggleMenu.init('menu','hidden');
 			</li>
 			<li><a href=".">Math</a>
 				<ul>
-                                    <li><a href=".">Grade 1</a></li>
+                                    <li><a href=".">Grade 1</a>
+                                        <ul>
+					<li><a href="countingtableLink">Counting Tables</a></li>
+                                        </ul>
+                                    </li>                                    
                                     <li><a href=".">Grade 3</a>
                                         <ul>
 					<li><a href="timestableLink">Times Tables</a></li>
