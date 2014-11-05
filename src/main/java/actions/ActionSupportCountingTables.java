@@ -26,7 +26,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.TTModel;
+import model.CTModel;
 import org.apache.struts2.ServletActionContext;
 
 /**
@@ -35,34 +35,34 @@ import org.apache.struts2.ServletActionContext;
  */
 public class ActionSupportCountingTables extends ActionSupport {
         
-//    private model.TTModel ttModel;
+    private model.CTModel ctModel;
     
     public ActionSupportCountingTables() {
         super();
         Logger.getLogger(actions.ActionSupportCountingTables.class.getName()).log(Level.INFO, "ActionSupportCountingTables - Startup");
     }
-/*
-    public TTModel getTtModel() {
-        return ttModel;
+
+    public CTModel getCtModel() {
+        return ctModel;
     }
 
-    public void setTtModel(TTModel ttModel) {
-        this.ttModel = ttModel;
+    public void setCtModel(CTModel ctModel) {
+        this.ctModel = ctModel;
     }
-*/
+
     public String execute() throws Exception {
 
         HttpServletRequest request = ServletActionContext.getRequest();
         HttpServletResponse response = ServletActionContext.getResponse();
        // int n1 = 2, n2 = 3, n3 = 4, n4 = 5, n5 = 10;
-        boolean answers = false;
-/*
+    //    boolean answers = false;
+
         //  String seq = request.getParameter("sequence");
-        String seq = ttModel.getSequence();
-
-     //  answers = Boolean.parseBoolean(request.getParameter("answers"));
-        answers = Boolean.parseBoolean(ttModel.getAnswers());        
-
+        String countBy = ctModel.getCountBy();
+        String countUptil = ctModel.getCountUptil();
+        //  answers = Boolean.parseBoolean(request.getParameter("answers"));
+      //  answers = Boolean.parseBoolean(ttModel.getAnswers());        
+/*
         String fpath = "/ServletPDFTimesTable2.strut";
         fpath = fpath + "?Sequence="+ URLEncoder.encode(seq, "UTF-8") + "&ShowAnswers=" + URLEncoder.encode(String.valueOf(answers), "UTF-8");
         request.setAttribute("filePathForJavaScript", fpath);

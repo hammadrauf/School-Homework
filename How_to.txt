@@ -1,0 +1,58 @@
+How to Add a Page in Struts2 Tiles App (Demo - SchoolHomework)
+
+1. Add a Hyperlink in Menu.jsp having Struts/Tiles value as HREF.
+			<li><a href=".">Math</a>
+				<ul>
+                    <li><a href=".">Grade 1</a>
+                    <ul>
+     					<li><a href="countingtableLink">Counting Tables</a></li>
+                    </ul>
+                    </li>
+                 .....
+                 </ul>
+            </li>                                    
+
+
+2. Update Struts.xml to add Action-Result for configured Tiles action.
+        <action name="*Link" class="actions.LinkAction" method="{1}"  >
+        ......
+				<result name="countingtable" type="tiles">countingtable</result>
+		......
+		</action>
+
+
+3. In the Tils action class "LinkAction.java" add a method for the new Tiles-Struts Link as follows:
+    public String countingtable() {
+        return "countingtable";
+    }
+  
+4. Add a JSP page in ./pages/folder with the name "countingtable.jsp".
+
+4.1. In tiles.xml file (Inside WEB-INF in the web project) add the Definition Element as follows:
+  <definition name="countingtable" extends="baseLayout">
+      <put-attribute name="title"  value="School Homework Web-Site"/>
+      <put-attribute name="body"   value="/pages/countingtable.jsp" />      
+  </definition>
+
+
+--
+
+if Countingtable.jsp above contains a form handler Struts Action then
+5. Create the Struts Action Handler entry in struts.xml
+        <action name="ActionSupportCountingTables" class="actions.ActionSupportCountingTables" >
+	    <interceptor-ref name="exception"/>
+            <interceptor-ref name="i18n"/>
+            <interceptor-ref name="params">
+                <param name="excludeParams">dojo\..*,^struts\..*</param>
+            </interceptor-ref>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <result name="success" type="tiles">timesTableView</result>
+        </action>
+
+6. Add the ActionSupport "actions.ActionSupportCountingTables.java" class.
+7. If needed a new result page then Add a Page (starting from step 1 above).
