@@ -55,6 +55,11 @@
 <put-attribute name="body"   value="/pages/randomtimestable.jsp" />      
 </definition>
 
+  <definition name="countingtable" extends="baseLayout">
+<put-attribute name="title"  value="School Homework Web-Site"/>
+<put-attribute name="body"   value="/pages/countingtable.jsp" />      
+</definition>
+
 <definition name="randomttView" extends="baseLayout">
 <put-attribute name="title"  value="School Homework Web-Site"/>
 <put-attribute name="body"   value="/pages/TimesTableView.jsp"/>      
