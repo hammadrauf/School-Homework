@@ -31,8 +31,8 @@
 <h3>Generate &quot;Counting-By&quot; Or Counting Tables</h3>
         <s:form name="CountingTables" action="ActionSupportCountingTables" method="get">
             <%-- s:textfield label="Numbers to generate tables for (2,3,4,5 and 10 - Separate by comma)" name="ttModel.sequence" size="12" value="2,3,4,5,10"/ --%>
-            <s:radio label="Counting-by" name="ctModel.countBy" list="#{ 'one' : '1', 'two' : '2' : 'five' : '5' }" value="one" />
-            <s:radio label="Counting uptil" name="ctModel.countUptil" list="#{ '1hundred' : '100', '2hundred' : '200' }" value="1hundred" />
+            <%--s:radio label="Counting-by" name="ctModel.countBy" list="#{ 'one' : '1', 'two' : '2' : 'five' : '5' }" value="one" />
+            <s:radio label="Counting uptil" name="ctModel.countUptil" list="#{ '1hundred' : '100', '2hundred' : '200' }" value="1hundred" / --%>
             <%--   <s:radio label="Show Answers" name="ttModel.answers" list="ttModel.{listOptions}" 
                        listKey="ttModel.listOptions.code" listValue="ttModel.listOptions.value" value="ttModel.defaultListValue" />
           --%>  <s:token />
