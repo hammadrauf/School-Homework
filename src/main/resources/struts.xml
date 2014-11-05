@@ -8,6 +8,12 @@
     <!--constant name="struts.custom.i18n.resources"
 		value="ApplicationResources" /--> 
     <package name="default" extends="struts-default">
+        <global-results>
+            <result name="error">errorView</result>
+        </global-results>
+        <global-exception-mappings>
+            <exception-mapping exception="java.lang.Exception" result="error" />
+        </global-exception-mappings>
         <result-types>
             <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
         </result-types>
@@ -42,7 +48,19 @@
         </action>
 
         <action name="ActionSupportCountingTables" class="actions.ActionSupportCountingTables" >
-            <result name="success" type="tiles">timesTableView</result>
+	    <interceptor-ref name="exception"/>
+            <interceptor-ref name="i18n"/>
+            <interceptor-ref name="params">
+                <param name="excludeParams">dojo\..*,^struts\..*</param>
+            </interceptor-ref>
+            <interceptor-ref name="validation">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+            <interceptor-ref name="workflow">
+                <param name="excludeMethods">input,back,cancel,browse</param>
+            </interceptor-ref>
+           <result name="success" type="tiles">timesTableView</result>
+           <result name="error">errorView</result>
         </action>
 
 	<action name="ActionSupportTestPersistance" class="actions.ActionSupportTestPersistance" >

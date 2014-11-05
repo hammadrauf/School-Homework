@@ -1,4 +1,4 @@
-How to Add a Page in Struts2 Tiles App (Demo - SchoolHomework)
+How to Add a 'HyperLink and a Page' in Struts2 Tiles App (Demo - SchoolHomework)
 
 1. Add a Hyperlink in Menu.jsp having Struts/Tiles value as HREF.
 			<li><a href=".">Math</a>
@@ -21,7 +21,7 @@ How to Add a Page in Struts2 Tiles App (Demo - SchoolHomework)
 		</action>
 
 
-3. In the Tils action class "LinkAction.java" add a method for the new Tiles-Struts Link as follows:
+3. In the Tiles action class "LinkAction.java" add a method for the new Tiles-Struts Link as follows:
     public String countingtable() {
         return "countingtable";
     }
@@ -36,6 +36,8 @@ How to Add a Page in Struts2 Tiles App (Demo - SchoolHomework)
 
 
 --
+
+Adding A Form
 
 if Countingtable.jsp above contains a form handler Struts Action then
 5. Create the Struts Action Handler entry in struts.xml
@@ -56,3 +58,5 @@ if Countingtable.jsp above contains a form handler Struts Action then
 
 6. Add the ActionSupport "actions.ActionSupportCountingTables.java" class.
 7. If needed a new result page then Add a Page (starting from step 1 above).
+
+---

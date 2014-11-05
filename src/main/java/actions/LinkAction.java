@@ -49,10 +49,11 @@ public class LinkAction extends ActionSupport {
         return "drawingpage";
     }
 
+    /*
     public String timesTableView() {
         return "timesTableView";
     }
-
+*/
     public String timestable() {
         return "timestable";
     }
