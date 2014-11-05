@@ -22,11 +22,13 @@ package actions;
 
 import com.opensymphony.xwork2.ActionSupport;
 import java.net.URLEncoder;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.CTModel;
+import model.CodeAndValue;
 import org.apache.struts2.ServletActionContext;
 
 /**
@@ -34,7 +36,14 @@ import org.apache.struts2.ServletActionContext;
  * @author Hammad
  */
 public class ActionSupportCountingTables extends ActionSupport {
-        
+
+    /*
+    private List<String> countBys;
+    private static final String ONE = "one";
+    private static final String TWO = "two";
+    private static final String FIVE = "five";
+    */
+    
     private model.CTModel ctModel;
     
     public ActionSupportCountingTables() {
@@ -58,11 +67,12 @@ public class ActionSupportCountingTables extends ActionSupport {
     //    boolean answers = false;
 
         //  String seq = request.getParameter("sequence");
-        String countBy = ctModel.getCountBy();
-        String countUptil = ctModel.getCountUptil();
+        //List<CodeAndValue> countBy = ctModel.getCountBy();
+        //List<CodeAndValue> countUptil = ctModel.getCountUptil();
         //  answers = Boolean.parseBoolean(request.getParameter("answers"));
       //  answers = Boolean.parseBoolean(ttModel.getAnswers());        
 /*
+        
         String fpath = "/ServletPDFTimesTable2.strut";
         fpath = fpath + "?Sequence="+ URLEncoder.encode(seq, "UTF-8") + "&ShowAnswers=" + URLEncoder.encode(String.valueOf(answers), "UTF-8");
         request.setAttribute("filePathForJavaScript", fpath);

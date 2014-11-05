@@ -29,23 +29,26 @@ import java.util.List;
  */
 public class CTModel {
     
-    private String countBy;
-    private String countUptil;
-    //private List<CodeAndValue> countBy;
-    //private List<CodeAndValue> countUptil;
+    //private String countBy;
+    //private String countUptil;
+    private List<CodeAndValue> countBy;
+    private List<CodeAndValue> countUptil;
     //    private List<CodeAndValue> listOptions;
     
     
     public CTModel() {
         super();
-        /*
         countBy = new ArrayList<CodeAndValue>();
         countBy.add(new CodeAndValue("one", "1"));
         countBy.add(new CodeAndValue("two", "2"));
         countBy.add(new CodeAndValue("five", "5"));
-                */
+    
+        countUptil = new ArrayList<CodeAndValue>();
+        countUptil.add(new CodeAndValue("1hundred", "100"));
+        countUptil.add(new CodeAndValue("2hundred", "200"));
     }
     
+/*    
     public String getCountBy() {
         return countBy;
     }
@@ -62,18 +65,31 @@ public class CTModel {
         this.countUptil = countUptil;
     }
     
-/*    
-    public String getDefaultListValue(){
-		return "true";
+*/
+    
+    public String getDefaultCountBy() {
+		return "one";
    }
 
-     public List<CodeAndValue> getListOptions() {
-        return listOptions;
+     public List<CodeAndValue> getCountBy() {
+        return countBy;
     }
 
-    public void setListOptions(List<CodeAndValue> listOptions) {
-        this.listOptions = listOptions;
+    public void setCountBy(List<CodeAndValue> countBy) {
+        this.countBy = countBy;
     } 
-  */ 
+      
+    public String getDefaultCountUptil() {
+		return "1hundred";
+   }
+
+     public List<CodeAndValue> getCountUptil() {
+        return countUptil;
+    }
+
+    public void setCountUptil(List<CodeAndValue> countUptil) {
+        this.countUptil = countUptil;
+    } 
+
     
 }
