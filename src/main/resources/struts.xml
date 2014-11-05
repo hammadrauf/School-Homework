@@ -42,9 +42,7 @@
         </action>
 
         <action name="ActionSupportCountingTables" class="actions.ActionSupportCountingTables" >
-	    <interceptor-ref name="exception"/>
-            <interceptor-ref name="i18n"/>
-            <interceptor-ref name="params">
+          <interceptor-ref name="params">
                 <param name="excludeParams">dojo\..*,^struts\..*</param>
             </interceptor-ref>
             <interceptor-ref name="validation">
