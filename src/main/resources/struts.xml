@@ -18,7 +18,7 @@
             <result name="index" type="tiles">index</result>
             <result name="drawingpage" type="tiles">drawingpage</result>
             <result name="timestable" type="tiles">timestable</result>
-            <result name="timestable" type="tiles">countingtable</result>
+            <result name="countingtable" type="tiles">countingtable</result>
             <result name="randomtimestable" type="tiles">randomtimestable</result>
             <result name="persistanceForm" type="tiles">persistanceForm</result>
             <result name="login" type="tiles">login</result>
