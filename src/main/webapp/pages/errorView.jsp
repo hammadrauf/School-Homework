@@ -29,11 +29,21 @@
     <body>
         <h3>Error</h3>
         <p>An error has occurred during execution. Report to development team.</p>
-        
+        <%--
         Runtime Exception Name: <s:property value="exception"/><br><br>
  
         Runtime Exception Stack Trace: <br>
         <s:property value="exceptionStack"/>
+        --%>
+        <s:actionerror/>
+        <p>
+            <s:property value="%{exception.message}"/>
+        </p>
+        <hr/>
+        <h4>Technical Details</h4>
+        <p>
+            <s:property value="%{exceptionStack}"/>
+        </p>
     </body>
 </html>
 
