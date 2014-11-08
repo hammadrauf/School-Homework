@@ -30,11 +30,10 @@
 <body>
 <h3>Generate &quot;Counting-By&quot; Or Counting Tables</h3>
         <s:form name="CountingTables" action="ActionSupportCountingTables" method="get">
-            <%--OKs:radio id="radio1" name="ctModel.countBy" title="1" list="#{ 'one' : '1'}" />
-            <s:radio id="radio1" name="ctModel.countBy" title="2" list="#{ 'two' : '2' }" />
-            <s:radio id="radio1" name="ctModel.countBy" title="5" list="#{ 'five' : '5' }" /--%>
-            <s:radio label="Count-By" name="ctModel.countBySelection" list="ctModel.countBy" 
-                       listKey="ctModel.countBy.code" listValue="ctModel.countBy.value" value="ctModel.defaultCountBy" />
+            <%--s:radio label="Count-By" name="ctModel.countBySelection" list="ctModel.countBy" 
+                       listKey="ctModel.countBy.code" listValue="ctModel.countBy.value" value="ctModel.defaultCountBy" /--%>
+            <s:radio id="countBy" label="Count-by" name="countBy"
+                     list="#{'one' : '1', 'two' : '2', 'five' : '5' }" value="'one'" />  
             <s:radio id="countUptil" label="Count uptil" name="countUptil" 
                      list="#{'1hundred' : '100', '2hundred' : '200', '3hundred' : '300'}"  value="'1hundred'" />
             <s:token />
