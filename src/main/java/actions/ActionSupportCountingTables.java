@@ -49,6 +49,7 @@ public class ActionSupportCountingTables extends ActionSupport {
     public ActionSupportCountingTables() {
         super();
         Logger.getLogger(actions.ActionSupportCountingTables.class.getName()).log(Level.INFO, "ActionSupportCountingTables - Startup");
+        setCtModel(new CTModel());
     }
 
     public CTModel getCtModel() {
