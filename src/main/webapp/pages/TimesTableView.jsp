@@ -18,6 +18,7 @@
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
 --%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <%--@page contentType="text/html" pageEncoding="UTF-8"--%>
 <!DOCTYPE html>
 <html>
@@ -27,6 +28,7 @@
     </head>
     <body>
         <h3>Times Table Result</h3>
+        <h3><tiles:insertAttribute name="viewHeading" /></h3>
 <%-- Text Messages
         <p>The answers setting is : <%=request.getAttribute("ShowAnswers")%></p>
         <p> Table1 <br/>

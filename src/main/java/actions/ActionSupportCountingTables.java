@@ -27,8 +27,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.CTModel;
-import model.CodeAndValue;
 import org.apache.struts2.ServletActionContext;
 
 /**
@@ -37,27 +35,11 @@ import org.apache.struts2.ServletActionContext;
  */
 public class ActionSupportCountingTables extends ActionSupport {
 
-    /*
-    private List<String> countBys;
-    private static final String ONE = "one";
-    private static final String TWO = "two";
-    private static final String FIVE = "five";
-    */
-    
-    private model.CTModel ctModel;
     
     public ActionSupportCountingTables() {
         super();
         Logger.getLogger(actions.ActionSupportCountingTables.class.getName()).log(Level.INFO, "ActionSupportCountingTables - Startup");
 //        setCtModel(new CTModel());
-    }
-
-    public CTModel getCtModel() {
-        return ctModel;
-    }
-
-    public void setCtModel(CTModel ctModel) {
-        this.ctModel = ctModel;
     }
 
     public String execute() throws Exception {

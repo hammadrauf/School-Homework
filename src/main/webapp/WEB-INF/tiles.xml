@@ -42,7 +42,8 @@
 
   <definition name="timesTableView" extends="baseLayout">
 <put-attribute name="title"  value="School Homework Web-Site"/>
-<put-attribute name="body"   value="/pages/TimesTableView.jsp"/>      
+<put-attribute name="body"   value="/pages/TimesTableView.jsp"/>    
+<put-attribute name="viewHeading" value="Times Table v" />  
 </definition>
 
   <definition name="errorView" extends="baseLayout">
@@ -67,7 +68,8 @@
 
 <definition name="randomttView" extends="baseLayout">
 <put-attribute name="title"  value="School Homework Web-Site"/>
-<put-attribute name="body"   value="/pages/TimesTableView.jsp"/>      
+<put-attribute name="body"   value="/pages/TimesTableView.jsp"/>
+<put-attribute name="viewHeading" value="Random Times Table v" />      
 </definition>
 
 <definition name="persistanceForm" extends="baseLayout">
