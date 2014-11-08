@@ -38,7 +38,7 @@
             <%--ERRORs:radio id="radio2" label="Counting uptil" name="ctModel.countUptil" list="#{ '1hundred' : '100', '2hundred' : '200' }" value="1hundred" /--%>
             <%--OKs:radio id="radio2" name="ctModel.countUptil" title="100" list="#{ '1hundred' : '100'}" />
             <s:radio id="radio2" name="ctModel.countUptil" title="200" list="#{ '2hundred' : '200'}" /--%>
-            <s:radio id="countUtil" name="countUptil" list="#{'1hundred' : '100', '2hundred' : '200'}" />
+            <s:radio id="countUtil" name="countUptil" list="#{'1hundred' : '100', '2hundred' : '200'}"  value="1hundred" />
             <%--s:radio label="Count-By" name="ctModel.countBy" list="ctModel.countBy" 
                        listKey="ctModel.countBy.code" listValue="ctModel.countBy.value" value="ctModel.defaultCountBy" /-->
             <%--s:radio label="Count uptil" name="countUptil" list="ctModel.{countUptil}" 
