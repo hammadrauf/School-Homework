@@ -29,7 +29,7 @@ import java.util.List;
  */
 public class CTModel {
     
-    //private String countBy;
+    private String countBySelection;
     //private String countUptil;
     private List<CodeAndValue> countBy;
     private List<CodeAndValue> countUptil;
@@ -47,25 +47,14 @@ public class CTModel {
         countUptil.add(new CodeAndValue("1hundred", "100"));
         countUptil.add(new CodeAndValue("2hundred", "200"));
     }
-    
-/*    
-    public String getCountBy() {
-        return countBy;
-    }
-    
-    public void setCountBy(String countBy) {
-        this.countBy = countBy;
+
+    public String getCountBySelection() {
+        return countBySelection;
     }
 
-    public String getCountUptil() {
-        return countUptil;
-    }
-
-    public void seCountUptil(String countUptil) {
-        this.countUptil = countUptil;
-    }
-    
-*/
+    public void setCountBySelection(String countBySelection) {
+        this.countBySelection = countBySelection;
+    }   
     
     public String getDefaultCountBy() {
 		return "one";
