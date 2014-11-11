@@ -24,7 +24,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Error Page<title>
+        <title>Error Page</title>
     </head>
     <body>
         <h3>Error</h3>
@@ -35,14 +35,14 @@
         Runtime Exception Stack Trace: <br>
         <s:property value="exceptionStack"/>
         --%>
-        <%--s:actionerror/--%>
+        <s:actionerror/>
         <p>
-            <%--s:property value="%{exception.message}"/--%>
+            <s:property value="%{exception.message}"/>
         </p>
         <hr/>
         <h4>Technical Details</h4>
         <p>
-            <%--s:property value="%{exceptionStack}"/--%>
+            <s:property value="%{exceptionStack}"/>
         </p>
     </body>
 </html>
