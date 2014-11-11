@@ -33,9 +33,9 @@
             <%--s:radio label="Count-By" name="ctModel.countBySelection" list="ctModel.countBy" 
                        listKey="ctModel.countBy.code" listValue="ctModel.countBy.value" value="ctModel.defaultCountBy" /--%>
             <s:radio id="countBy" label="Count-by" name="countBy"
-                     list="#{'two' : '2', 'four' : '4', 'five' : '5', 'six' : '6', 'eight' : '8', 'ten' : '10' }" value="'two'" />  
+                     list="#{'2' : '2', '4' : '4', '5' : '5', '6' : '6', '8' : '8', '10' : '10' }" value="'2'" />  
             <s:radio id="countUptil" label="Count uptil" name="countUptil" 
-                     list="#{'1hundred' : '100', '2hundred' : '200', '3hundred' : '300'}"  value="'1hundred'" />
+                     list="#{'100' : '100', '200' : '200', '300' : '300'}"  value="'100'" />
             <s:radio id="showBlanks" label="Show blanks" name="showBlanks"
                      list="#{'true' : 'Yes', 'false' : 'No'}" value="'false'" />
             <s:token />
