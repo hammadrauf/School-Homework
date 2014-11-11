@@ -27,7 +27,7 @@
         <title>School Homework Web-Site Home Page</title>
     </head>
     <body>
-        <h3>Home Page</h1><p>Hello!</p>
+        <h3>Home Page</h3><p>Hello!</p>
         <div><p>You can practice your drawing and do times table questions here. Look below for useful tools.</p></div>
         <h4>Grade 1 and 2</h4>
         <div><a href="drawingpageLink">Drawing practice (Registration needed)</a></div>

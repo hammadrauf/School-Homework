@@ -13,7 +13,7 @@
         </result-types>
 
         <global-results>
-            <result name="error">errorView</result>
+            <result name="error" type="tiles">errorView</result>
         </global-results>
         <global-exception-mappings>
             <exception-mapping exception="java.lang.Exception" result="error" />

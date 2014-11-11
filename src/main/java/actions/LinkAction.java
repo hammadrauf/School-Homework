@@ -53,10 +53,11 @@ public class LinkAction extends ActionSupport {
     public String timesTableView() {
         return "timesTableView";
     }
-*/
+
     public String errorView() {
         return "errorView";
     }
+    */
     
     public String timestable() {
         return "timestable";
