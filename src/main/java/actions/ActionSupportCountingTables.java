@@ -36,50 +36,26 @@ import org.apache.struts2.ServletActionContext;
  * @author Hammad
  */
 public class ActionSupportCountingTables extends ActionSupport {
-
-    /*
-    private List<String> countBys;
-    private static final String ONE = "one";
-    private static final String TWO = "two";
-    private static final String FIVE = "five";
-    */
-    
-    private model.CTModel ctModel;
     
     public ActionSupportCountingTables() {
         super();
         Logger.getLogger(actions.ActionSupportCountingTables.class.getName()).log(Level.INFO, "ActionSupportCountingTables - Startup");
-//        setCtModel(new CTModel());
     }
 
-    public CTModel getCtModel() {
-        return ctModel;
-    }
-
-    public void setCtModel(CTModel ctModel) {
-        this.ctModel = ctModel;
-    }
 
     public String execute() throws Exception {
 
         HttpServletRequest request = ServletActionContext.getRequest();
         HttpServletResponse response = ServletActionContext.getResponse();
-       // int n1 = 2, n2 = 3, n3 = 4, n4 = 5, n5 = 10;
-    //    boolean answers = false;
 
-        //  String seq = request.getParameter("sequence");
-        //List<CodeAndValue> countBy = ctModel.getCountBy();
-        //List<CodeAndValue> countUptil = ctModel.getCountUptil();
-        //  answers = Boolean.parseBoolean(request.getParameter("answers"));
-      //  answers = Boolean.parseBoolean(ttModel.getAnswers());        
-/*
-        
-        String fpath = "/ServletPDFTimesTable2.strut";
-        fpath = fpath + "?Sequence="+ URLEncoder.encode(seq, "UTF-8") + "&ShowAnswers=" + URLEncoder.encode(String.valueOf(answers), "UTF-8");
+        int countBy = Integer.parseInt(request.getParameter("countBy"));
+        int countUptil = Integer.parseInt(request.getParameter("countUptil"));
+        boolean showBlanks = Boolean.parseBoolean(request.getParameter("showBlanks"));
+   
+        String fpath = "/ServletPDFCountingTable.strut";
+        fpath = fpath + "?countBy="+ URLEncoder.encode(String.valueOf(countBy), "UTF-8") + "&countUptil=" + URLEncoder.encode(String.valueOf(countUptil), "UTF-8") + "&showBlanks=" + URLEncoder.encode(String.valueOf(showBlanks), "UTF-8");
         request.setAttribute("filePathForJavaScript", fpath);
- */       
-        request.setAttribute("filePathForJavaScript", ".");
         return ("success");
-
+        
     }
 }

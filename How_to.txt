@@ -65,3 +65,22 @@ if Countingtable.jsp above contains a form handler Struts Action then
 7. If needed a new result page (in <result /> element) then Add a Page (starting from step 4 above).
 
 ---
+
+D) Add a Servlet
+1. Copy an existing servlet, or create a new Servlet in "/servlets" folder.
+2. Edit/code the servlet.
+3. Register the Servlet in web.xml file.
+.....
+    <servlet>
+        <servlet-name>ServletPDFCountingTable</servlet-name>
+        <servlet-class>servlets.ServletPDFCountingTable</servlet-class>
+    </servlet>
+....
+    <servlet-mapping>
+        <servlet-name>ServletPDFCountingTable</servlet-name>
+        <url-pattern>/ServletPDFCountingTable.strut</url-pattern>
+    </servlet-mapping>
+4. (Optional) Check that the URL pattern given in step 3 above matches the reg-ex pattern given in struts.xml exclude constant.
+.....
+     <constant name="struts.action.excludePattern" value="/Servlet*.strut*" />
+.....
