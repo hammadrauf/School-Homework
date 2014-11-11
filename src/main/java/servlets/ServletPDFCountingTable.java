@@ -45,8 +45,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts2.ServletActionContext;
-import util.ParseSequence;
-import util.QuestionData;
 
 /**
  *
@@ -54,7 +52,7 @@ import util.QuestionData;
  */
 public class ServletPDFCountingTable extends HttpServlet {
 
-    private static final int tableColumns = 5;
+    private static final int tableColumns = 10;
     private static final float borderWidth = 3.0f;
     
     /**
@@ -106,16 +104,6 @@ public class ServletPDFCountingTable extends HttpServlet {
     private void generatePDF(ByteArrayOutputStream baos, String domain, boolean borders, int countBy, int countUptil, boolean showBlanks)
             throws DocumentException, NumberFormatException,
             IllegalStateException, IndexOutOfBoundsException, FileNotFoundException {
-        /*
-        //int[] numbs = {n1, n2, n3, n4, n5};
-        ParseSequence ps = new ParseSequence("(?<numbers>[\\d]{1,2})");
-        //Maximum two digit integers with any seperator in between.
-
-        Integer ii = null;
-        ArrayList<Character> charList = null;
-        ArrayList<Integer> oneDataList = ps.matchIntAllCapturingGroups(seq);
-        ArrayList<QuestionData> qdList = generateQuestions(oneDataList, howmany);
-        */
         // step 1
         Document document = new Document(PageSize.LETTER);
         // step 2
@@ -128,23 +116,24 @@ public class ServletPDFCountingTable extends HttpServlet {
         document.add(Chunk.NEWLINE);
         
         document.add(new Paragraph("Count By = "+countBy+", Count Uptil = "+countUptil+", Show Blanks = "+showBlanks));
-        //document.add(new Paragraph("Seq:"+seq));
-        //  for(QuestionData qd: qdList) {
-        //      document.add(new Paragraph(qd.toStringQuestionAndAnswer()));
-        //  }
-/*
+
         PdfPTable table = null;
         PdfPCell cell = null;
         int columns = 0;
-
-        PdfPTable tableInner = null;
-        PdfPCell cellInner = null;
 
         table = new PdfPTable(tableColumns);
         table.setWidthPercentage(100);
         table.setSpacingBefore(0);
 
-
+        for (int i=1; i<=countUptil; i++) {
+            for (int ii=1; ii<=tableColumns; ii++) {
+                cell = new PdfPCell(new Paragraph(i));
+                cell.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
+                cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
+                table.addCell(cell);                
+            }
+        }
+/*
         for (QuestionData qd : qdList) {
             columns++;
 
@@ -305,9 +294,10 @@ public class ServletPDFCountingTable extends HttpServlet {
             table.addCell(cell);
             remaining--;
         }
+*/        
         document.add(table);
         // but the result looks like one big table
-*/
+
         // step 4
         document.close();
     }
