@@ -35,7 +35,7 @@
             <s:radio id="countBy" label="Count-by" name="countBy"
                      list="#{'2' : '2', '4' : '4', '5' : '5', '6' : '6', '8' : '8', '10' : '10' }" value="'2'" />  
             <s:radio id="countUptil" label="Count uptil" name="countUptil" 
-                     list="#{'100hundred' : '100', '200' : '200', '300' : '300'}"  value="'100'" />
+                     list="#{'100' : '100', '200' : '200', '300' : '300'}"  value="'100'" />
             <s:radio id="showBlanks" label="Show blanks" name="showBlanks"
                      list="#{'true' : 'Yes', 'false' : 'No'}" value="'false'" />
             <s:token />
