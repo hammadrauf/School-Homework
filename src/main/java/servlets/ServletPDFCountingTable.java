@@ -127,7 +127,7 @@ public class ServletPDFCountingTable extends HttpServlet {
 
         for (int i=1; i<=countUptil; i++) {
             for (int ii=1; ii<=tableColumns; ii++) {
-                cell = new PdfPCell(new Paragraph(i));
+                cell = new PdfPCell(new Paragraph(Integer.toString(i)));
                 cell.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                 cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                 table.addCell(cell);                
