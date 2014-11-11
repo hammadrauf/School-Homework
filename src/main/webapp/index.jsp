@@ -29,9 +29,13 @@
     <body>
         <h3>Home Page</h1><p>Hello!</p>
         <div><p>You can practice your drawing and do times table questions here. Look below for useful tools.</p></div>
-        <div><a href="drawingpageLink">Drawing practice</a></div>
+        <h4>Grade 1 and 2</h4>
+        <div><a href="drawingpageLink">Drawing practice (Registration needed)</a></div>
+        <div><a href="countingtableLink">Counting Tables</a></div>
+        <h4>Grade 3 and 4</h4>
         <div><a href="timestableLink">Multiplication times tables</a></div>
         <div><a href="randomtimestableLink">Mixed times table questions</a></div>
+        <h4>Register</h4>
         <div><a href="persistanceFormLink">Register e-mail address</a></div>
     </body>
 </html>
