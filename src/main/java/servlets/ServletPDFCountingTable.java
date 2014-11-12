@@ -137,176 +137,15 @@ public class ServletPDFCountingTable extends HttpServlet {
         boolean markedCell = false;
         
         for (int i = 1; i <= countUptil; i++) { 
-            cell = new PdfPCell(new Paragraph(Integer.toString(i),((i%countBy)==0)?fontBold:fontNormal));
+            cell = new PdfPCell(new Paragraph(((i%countBy)==0 & showBlanks)?" ":Integer.toString(i),((i%countBy)==0)?fontBold:fontNormal));
             cell.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
+            if((i%countBy)==0) {
+                cell.setBackgroundColor(BaseColor.GRAY);
+            }
             cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
             table.addCell(cell);
         }
-        /*
-         for (QuestionData qd : qdList) {
-         columns++;
-
-         tableInner = new PdfPTable(3); //Grade 3 questions should be 3 cols only (2 digits and 1 op-code)
-
-         cellInner = new PdfPCell(new Paragraph(" "));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         charList = QuestionData.getIntChars(qd.getFactor1());
-         if (charList.size() == 1) {
-         cellInner = new PdfPCell(new Paragraph(" "));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-         } else if (charList.size() >= 2) {
-         cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         cellInner = new PdfPCell(new Paragraph(charList.get(1).toString()));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-         }
-         cellInner = new PdfPCell(new Paragraph(qd.getOperation()));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         charList = QuestionData.getIntChars(qd.getFactor2());
-         if (charList.size() == 1) {
-         cellInner = new PdfPCell(new Paragraph(" "));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-         } else if (charList.size() >= 2) {
-         cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         cellInner = new PdfPCell(new Paragraph(charList.get(1).toString()));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-         }
-         // Add top answer line
-         cellInner = new PdfPCell(new Paragraph(" "));
-         cellInner.setColspan(3);
-         cellInner.setBorder(PdfPCell.TOP);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         if (showAnswers == true) {
-         charList = QuestionData.getIntChars(qd.getAnswer());
-         switch (charList.size()) {
-         case 3:
-         cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         cellInner = new PdfPCell(new Paragraph(charList.get(1).toString()));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         cellInner = new PdfPCell(new Paragraph(charList.get(2).toString()));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         break;
-         case 2:
-         cellInner = new PdfPCell(new Paragraph(" "));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         cellInner = new PdfPCell(new Paragraph(charList.get(1).toString()));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         break;
-         case 1:
-         cellInner = new PdfPCell(new Paragraph(" "));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         cellInner = new PdfPCell(new Paragraph(" "));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         break;
-         default:
-         cellInner = new PdfPCell(new Paragraph(" "));
-         cellInner.setColspan(3);
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-         }
-         }
-         //Add 1 blank lines for calculations
-         cellInner = new PdfPCell(new Paragraph(" "));
-         cellInner.setColspan(3);
-         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-         // Add lower Answer line
-         cellInner = new PdfPCell(new Paragraph(" "));
-         cellInner.setColspan(3);
-         cellInner.setBorder(PdfPCell.TOP);
-         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         tableInner.addCell(cellInner);
-
-         cell = new PdfPCell(tableInner);
-         // cell.addElement(tableInner);
-         cell.setBorder(PdfPCell.BOX);
-         cell.setBorderWidthRight(borderWidth);
-         cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         table.addCell(cell);
-         if (columns > tableColumns) {
-         columns = 0;
-         }
-         }
-         int remaining = tableColumns - columns;
-         while (remaining > 0) {
-         cell = new PdfPCell();
-         cell.setBorder(PdfPCell.BOX);
-         cell.setBorderWidthRight(borderWidth);
-         cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
-         table.addCell(cell);
-         remaining--;
-         }
-         */
         document.add(table);
-        // but the result looks like one big table
-
         // step 4
         document.close();
     }
@@ -363,7 +202,7 @@ public class ServletPDFCountingTable extends HttpServlet {
                 columns = widths[row].length - 1;
                 rect = new Rectangle(widths[row][0], heights[row],
                         widths[row][columns], heights[row + 1]);
-                rect.setBackgroundColor(BaseColor.YELLOW);
+                //rect.setBackgroundColor(BaseColor.YELLOW);
                 rect.setBorder(Rectangle.NO_BORDER);
                 canvases[PdfPTable.BASECANVAS].rectangle(rect);
             }
