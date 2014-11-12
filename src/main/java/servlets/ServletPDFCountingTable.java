@@ -120,13 +120,11 @@ public class ServletPDFCountingTable extends HttpServlet {
         document.add(new Paragraph(new Date().toString()));
         document.add(Chunk.NEWLINE);
 
-        document.add(new Paragraph("Count By = " + countBy + ", Count Uptil = " + countUptil + ", Show Blanks = " + showBlanks));
-
         PdfPTable table = null;
         PdfPCell cell = null;
         int columns = 0;
-        Font fontNormal = new Font(FontFamily.COURIER, 16, Font.NORMAL);
-        Font fontBold = new Font(FontFamily.COURIER, 16, Font.BOLD);
+        Font fontNormal = new Font(FontFamily.COURIER, 20, Font.NORMAL);
+        Font fontBold = new Font(FontFamily.COURIER, 20, Font.BOLD);
         
         table = new PdfPTable(tableColumns);
         table.setWidthPercentage(100);
@@ -143,6 +141,7 @@ public class ServletPDFCountingTable extends HttpServlet {
                 cell.setBackgroundColor(BaseColor.GRAY);
             }
             cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
+            cell.setFixedHeight(40f);
             table.addCell(cell);
         }
         document.add(table);
