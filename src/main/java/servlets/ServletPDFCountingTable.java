@@ -24,6 +24,9 @@ import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Font.FontFamily;
+import com.itextpdf.text.Font.FontStyle;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Rectangle;
@@ -122,16 +125,19 @@ public class ServletPDFCountingTable extends HttpServlet {
         PdfPTable table = null;
         PdfPCell cell = null;
         int columns = 0;
-
+        Font fontNormal = new Font(FontFamily.COURIER, 16, Font.NORMAL);
+        Font fontBold = new Font(FontFamily.COURIER, 16, Font.BOLD);
+        
         table = new PdfPTable(tableColumns);
         table.setWidthPercentage(100);
         table.setSpacingBefore(0);
 
         PdfPTableEvent tableEvent = new HelperForTable();
         table.setTableEvent(tableEvent);
-
-        for (int i = 1; i <= countUptil; i++) {
-            cell = new PdfPCell(new Paragraph(Integer.toString(i)));
+        boolean markedCell = false;
+        
+        for (int i = 1; i <= countUptil; i++) { 
+            cell = new PdfPCell(new Paragraph(Integer.toString(i),((i%countBy)==0)?fontBold:fontNormal));
             cell.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
             cell.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
             table.addCell(cell);
