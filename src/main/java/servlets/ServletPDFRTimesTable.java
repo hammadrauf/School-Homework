@@ -189,7 +189,7 @@ public class ServletPDFRTimesTable extends HttpServlet {
 
             charList = QuestionData.getIntChars(qd.getFactor2());
             if (charList.size() == 1) {
-                cellInner = new PdfPCell(new Phrase(" "),ff);
+                cellInner = new PdfPCell(new Phrase(" ",ff));
                 cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                 cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                 tableInner.addCell(cellInner);
@@ -210,7 +210,7 @@ public class ServletPDFRTimesTable extends HttpServlet {
                 tableInner.addCell(cellInner);
             }
             // Add top answer line
-            cellInner = new PdfPCell(new Phrase(" "),ff);
+            cellInner = new PdfPCell(new Phrase(" ",ff));
             cellInner.setColspan(3);
             cellInner.setBorder(PdfPCell.TOP);
             cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
