@@ -29,6 +29,10 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.BaseColor;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -56,6 +60,7 @@ public class ServletPDFRTimesTable extends HttpServlet {
 
     private static final int tableColumns = 5;
     private static final float borderWidth = 3.0f;
+    public static final String FONT = "resources/fonts/FreeSans.ttf";
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -109,6 +114,11 @@ public class ServletPDFRTimesTable extends HttpServlet {
         ParseSequence ps = new ParseSequence("(?<numbers>[\\d]{1,2})");
         //Maximum two digit integers with any seperator in between.
 
+        Font ff = FontFactory.getFont(FONT, null, true);
+        //ff.setColor(BaseColor.RED);
+        ff.setColor(BaseColor.BLACK);
+        ff.setSize(18);
+        
         Integer ii = null;
         ArrayList<Character> charList = null;
         ArrayList<Integer> oneDataList = ps.matchIntAllCapturingGroups(seq);
@@ -145,62 +155,62 @@ public class ServletPDFRTimesTable extends HttpServlet {
 
             tableInner = new PdfPTable(3); //Grade 3 questions should be 3 cols only (2 digits and 1 op-code)
 
-            cellInner = new PdfPCell(new Paragraph(" "));
+            cellInner = new PdfPCell(new Phrase(" ",ff));
             cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
             cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
             tableInner.addCell(cellInner);
 
             charList = QuestionData.getIntChars(qd.getFactor1());
             if (charList.size() == 1) {
-                cellInner = new PdfPCell(new Paragraph(" "));
+                cellInner = new PdfPCell(new Phrase(" ", ff));
                 cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                 cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                 tableInner.addCell(cellInner);
 
-                cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
+                cellInner = new PdfPCell(new Phrase(charList.get(0).toString(),ff));
                 cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                 cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                 tableInner.addCell(cellInner);
             } else if (charList.size() >= 2) {
-                cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
+                cellInner = new PdfPCell(new Phrase(charList.get(0).toString(),ff));
                 cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                 cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                 tableInner.addCell(cellInner);
 
-                cellInner = new PdfPCell(new Paragraph(charList.get(1).toString()));
+                cellInner = new PdfPCell(new Phrase(charList.get(1).toString(),ff));
                 cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                 cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                 tableInner.addCell(cellInner);
             }
-            cellInner = new PdfPCell(new Paragraph(qd.getOperation()));
+            cellInner = new PdfPCell(new Phrase(qd.getOperation(),ff));
             cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
             cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
             tableInner.addCell(cellInner);
 
             charList = QuestionData.getIntChars(qd.getFactor2());
             if (charList.size() == 1) {
-                cellInner = new PdfPCell(new Paragraph(" "));
+                cellInner = new PdfPCell(new Phrase(" "),ff);
                 cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                 cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                 tableInner.addCell(cellInner);
 
-                cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
+                cellInner = new PdfPCell(new Phrase(charList.get(0).toString(),ff));
                 cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                 cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                 tableInner.addCell(cellInner);
             } else if (charList.size() >= 2) {
-                cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
+                cellInner = new PdfPCell(new Phrase(charList.get(0).toString(),ff));
                 cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                 cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                 tableInner.addCell(cellInner);
 
-                cellInner = new PdfPCell(new Paragraph(charList.get(1).toString()));
+                cellInner = new PdfPCell(new Phrase(charList.get(1).toString(),ff));
                 cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                 cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                 tableInner.addCell(cellInner);
             }
             // Add top answer line
-            cellInner = new PdfPCell(new Paragraph(" "));
+            cellInner = new PdfPCell(new Phrase(" "),ff);
             cellInner.setColspan(3);
             cellInner.setBorder(PdfPCell.TOP);
             cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
@@ -210,58 +220,58 @@ public class ServletPDFRTimesTable extends HttpServlet {
                 charList = QuestionData.getIntChars(qd.getAnswer());
                 switch (charList.size()) {
                     case 3:
-                        cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
+                        cellInner = new PdfPCell(new Phrase(charList.get(0).toString(),ff));
                         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                         tableInner.addCell(cellInner);
 
-                        cellInner = new PdfPCell(new Paragraph(charList.get(1).toString()));
+                        cellInner = new PdfPCell(new Phrase(charList.get(1).toString(),ff));
                         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                         tableInner.addCell(cellInner);
 
-                        cellInner = new PdfPCell(new Paragraph(charList.get(2).toString()));
+                        cellInner = new PdfPCell(new Phrase(charList.get(2).toString(),ff));
                         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                         tableInner.addCell(cellInner);
 
                         break;
                     case 2:
-                        cellInner = new PdfPCell(new Paragraph(" "));
+                        cellInner = new PdfPCell(new Phrase(" ",ff));
                         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                         tableInner.addCell(cellInner);
 
-                        cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
+                        cellInner = new PdfPCell(new Phrase(charList.get(0).toString(),ff));
                         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                         tableInner.addCell(cellInner);
 
-                        cellInner = new PdfPCell(new Paragraph(charList.get(1).toString()));
+                        cellInner = new PdfPCell(new Phrase(charList.get(1).toString(),ff));
                         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                         tableInner.addCell(cellInner);
 
                         break;
                     case 1:
-                        cellInner = new PdfPCell(new Paragraph(" "));
+                        cellInner = new PdfPCell(new Phrase(" ",ff));
                         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                         tableInner.addCell(cellInner);
 
-                        cellInner = new PdfPCell(new Paragraph(" "));
+                        cellInner = new PdfPCell(new Phrase(" ",ff));
                         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                         tableInner.addCell(cellInner);
 
-                        cellInner = new PdfPCell(new Paragraph(charList.get(0).toString()));
+                        cellInner = new PdfPCell(new Phrase(charList.get(0).toString(),ff));
                         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
                         tableInner.addCell(cellInner);
 
                         break;
                     default:
-                        cellInner = new PdfPCell(new Paragraph(" "));
+                        cellInner = new PdfPCell(new Phrase(" ", ff));
                         cellInner.setColspan(3);
                         cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
                         cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
@@ -269,13 +279,13 @@ public class ServletPDFRTimesTable extends HttpServlet {
                 }
             }
             //Add 1 blank lines for calculations
-            cellInner = new PdfPCell(new Paragraph(" "));
+            cellInner = new PdfPCell(new Phrase(" ",ff));
             cellInner.setColspan(3);
             cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
             cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
             tableInner.addCell(cellInner);
             // Add lower Answer line
-            cellInner = new PdfPCell(new Paragraph(" "));
+            cellInner = new PdfPCell(new Phrase(" ",ff));
             cellInner.setColspan(3);
             cellInner.setBorder(PdfPCell.TOP);
             cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
