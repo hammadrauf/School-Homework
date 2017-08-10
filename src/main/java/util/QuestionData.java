@@ -177,7 +177,7 @@ public class QuestionData {
         while (!(numbList.isEmpty())) {
             f1 = numbList.remove(qcount);
             for (int i = 1; i <= qeach; i++) {
-                question = new QuestionData(f1.intValue(), (int) (11 * Math.random()),
+                question = new QuestionData(f1.intValue(), (int) (99 * Math.random()),
                         Operation.multiplication);
                 questionList.add(question);
             }
