@@ -49,7 +49,7 @@
             width:auto;
         }
 	.menu li {
-                font-size:70%;
+                font-size:120%;
 		display:block;
 		margin:0;
 		padding:0;
