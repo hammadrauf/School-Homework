@@ -41,7 +41,8 @@
 /* Actual menu CSS starts here */
 	.menu,
 	.menu ul {
-		margin:0;
+		font-size:140%;
+                margin:0;
 		padding:0;
 		list-style:none;
 	}
@@ -49,8 +50,7 @@
             width:auto;
         }
 	.menu li {
-                font-size:140%;
-		display:block;
+                display:block;
 		margin:0;
 		padding:0;
 		margin-bottom:1px;
