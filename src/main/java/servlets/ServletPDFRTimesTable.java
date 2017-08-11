@@ -33,6 +33,10 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.pdf.ColumnText;
+import com.itextpdf.text.pdf.PdfContentByte;
+import com.itextpdf.text.pdf.PdfPageEventHelper;
+import com.itextpdf.text.Element;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -61,6 +65,37 @@ public class ServletPDFRTimesTable extends HttpServlet {
     private static final int tableColumns = 5;
     private static final float borderWidth = 3.0f;
     public static final String FONT = "resources/fonts/FreeSans.ttf";
+
+    class MyFooter extends PdfPageEventHelper {
+        Font ffont = new Font(Font.FontFamily.UNDEFINED, 5, Font.ITALIC);
+        String domain = "";
+        
+        public MyFooter() {
+            super();
+        }
+        
+        public MyFooter(String domain) {
+            super();
+            this.domain = domain;
+        }
+        
+        public void onEndPage(PdfWriter writer, Document document) {
+            PdfContentByte cb = writer.getDirectContent();
+            Phrase header = new Phrase("this is a header", ffont);
+            String m = this.domain + " - " + new Date().toString();
+            Phrase footer = new Phrase(m, ffont);
+            /*
+            ColumnText.showTextAligned(cb, Element.ALIGN_CENTER,
+                    header,
+                    (document.right() - document.left()) / 2 + document.leftMargin(),
+                    document.top() + 10, 0);
+            */
+            ColumnText.showTextAligned(cb, Element.ALIGN_CENTER,
+                    footer,
+                    (document.right() - document.left()) / 2 + document.leftMargin(),
+                    document.bottom() - 10, 0);
+        }
+    }
     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -126,7 +161,9 @@ public class ServletPDFRTimesTable extends HttpServlet {
         // step 1
         Document document = new Document(PageSize.LETTER);
         // step 2
-        PdfWriter.getInstance(document, baos);
+        PdfWriter writer = PdfWriter.getInstance(document, baos);
+        MyFooter event = new MyFooter();
+        writer.setPageEvent(event);
         // step 3
         document.open();
         // step 4
