@@ -68,21 +68,21 @@ public class ServletPDFRTimesTable extends HttpServlet {
 
     class MyFooter extends PdfPageEventHelper {
         Font ffont = new Font(Font.FontFamily.UNDEFINED, 5, Font.ITALIC);
-        String domain = "";
+        String message = "";
         
         public MyFooter() {
             super();
         }
         
-        public MyFooter(String domain) {
+        public MyFooter(String message) {
             super();
-            this.domain = domain;
+            this.message = message;
         }
         
         public void onEndPage(PdfWriter writer, Document document) {
             PdfContentByte cb = writer.getDirectContent();
             Phrase header = new Phrase("this is a header", ffont);
-            String m = this.domain + " - " + new Date().toString();
+            String m = this.message;
             Phrase footer = new Phrase(m, ffont);
             /*
             ColumnText.showTextAligned(cb, Element.ALIGN_CENTER,
@@ -162,14 +162,14 @@ public class ServletPDFRTimesTable extends HttpServlet {
         Document document = new Document(PageSize.LETTER);
         // step 2
         PdfWriter writer = PdfWriter.getInstance(document, baos);
-        MyFooter event = new MyFooter();
+        MyFooter event = new MyFooter("SchoolHomeworkWeb - Multiplication Questions - "+domain+" - " + new Date().toString());
         writer.setPageEvent(event);
         // step 3
         document.open();
         // step 4
-        document.add(new Paragraph("SchoolHomeworkWeb - Random Questions - "+domain));
-        document.add(new Paragraph(new Date().toString()));
-        document.add(Chunk.NEWLINE);
+        //document.add(new Paragraph("SchoolHomeworkWeb - Random Questions - "+domain));
+        //document.add(new Paragraph(new Date().toString()));
+        // hmr - document.add(Chunk.NEWLINE);
         //document.add(new Paragraph("Seq:"+seq));
         //  for(QuestionData qd: qdList) {
         //      document.add(new Paragraph(qd.toStringQuestionAndAnswer()));
