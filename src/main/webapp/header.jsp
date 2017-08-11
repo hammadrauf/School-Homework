@@ -19,4 +19,29 @@
     along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.
 --%>
 <!--div align="center" style="font-weight:bold;font-size:200%">Kids Home Work Web-Site</div-->
-<span align="center" class="rainbow">Kids Home Work Web-Site</span>
+<!--span align="center" class="rainbow">Kids Home Work Web-Site</span-->
+<div alt="Kids Home Work Web-Site">
+<span style="font-size:220%;font-weight:bold;color:#ff0000">K</span>
+<span style="font-size:220%;font-weight:bold;color:#ff7f00">i</span>
+<span style="font-size:220%;font-weight:bold;color:#ffff00">d</span>
+<span style="font-size:220%;font-weight:bold;color:#00ff00">s</span>
+<span style="font-size:220%;font-weight:bold;color:#0000ff">&nbsp;</span>
+<span style="font-size:220%;font-weight:bold;color:#0000ff">H</span>
+<span style="font-size:220%;font-weight:bold;color:#4b0082">o</span>
+<span style="font-size:220%;font-weight:bold;color:#9400d3">m</span>
+<span style="font-size:220%;font-weight:bold;color:#ff0000">e</span>
+<span style="font-size:220%;font-weight:bold;color:#000000">&nbsp;</span>
+<span style="font-size:220%;font-weight:bold;color:#ff7f00">W</span>
+<span style="font-size:220%;font-weight:bold;color:#ffff00">o</span>
+<span style="font-size:220%;font-weight:bold;color:#00ff00">r</span>
+<span style="font-size:220%;font-weight:bold;color:#0000ff">k</span>
+<span style="font-size:220%;font-weight:bold;color:#0000ff">&nbsp;</span>
+<span style="font-size:220%;font-weight:bold;color:#4b0082">W</span>
+<span style="font-size:220%;font-weight:bold;color:#9400d3">e</span>
+<span style="font-size:220%;font-weight:bold;color:#ff0000">b</span>
+<span style="font-size:220%;font-weight:bold;color:#ff7f00">-</span>
+<span style="font-size:220%;font-weight:bold;color:#ffff00">S</span>
+<span style="font-size:220%;font-weight:bold;color:#00ff00">i</span>
+<span style="font-size:220%;font-weight:bold;color:#0000ff">t</span>
+<span style="font-size:220%;font-weight:bold;color:#4b0082">e</span>
+</div>
