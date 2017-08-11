@@ -41,8 +41,7 @@
 /* Actual menu CSS starts here */
 	.menu,
 	.menu ul {
-		font-size:140%;
-                margin:0;
+		margin:0;
 		padding:0;
 		list-style:none;
 	}
@@ -126,7 +125,7 @@ toggleMenu.addEvent(window, 'load', function(){toggleMenu.init('menu','hidden');
     </head>
     <body>
 		<ul class="menu">
-			<li><a href="indexLink">Home</a>
+			<li style="font-size:140%;"><a href="indexLink">Home</a>
 				<!--ul>
 					<li><a href="/">Sub category 1a</a></li>
 					<li><a href="/">Sub category 1b</a></li>
@@ -134,7 +133,7 @@ toggleMenu.addEvent(window, 'load', function(){toggleMenu.init('menu','hidden');
 					<li><a href="/">Sub category 1d</a></li>
 				</ul -->
 			</li>
-			<li><a href="drawingpageLink">Draw</a>
+			<li style="font-size:140%;"><a href="drawingpageLink">Draw</a>
 				<!-- ul>
 					<li><a href="/">Sub category 2a</a></li>
 					<li><a href="/">Sub category 2b</a></li>
@@ -142,7 +141,7 @@ toggleMenu.addEvent(window, 'load', function(){toggleMenu.init('menu','hidden');
 					<li><a href="/">Sub category 2d</a></li>
 				</ul -->
 			</li>
-			<li><a href=".">Math</a>
+			<li style="font-size:140%;"><a href=".">Math</a>
 				<ul>
                                     <li><a href=".">Grade 1</a>
                                         <ul>
@@ -157,7 +156,7 @@ toggleMenu.addEvent(window, 'load', function(){toggleMenu.init('menu','hidden');
                                     </li>
 				</ul>
 			</li>
-			<li><a href="persistanceFormLink">Register</a>
+			<li style="font-size:140%;"><a href="persistanceFormLink">Register</a>
 				<!-- ul>
 					<li><a href="/">Sub category 4a</a></li>
 					<li><a href="/">Sub category 4b</a></li>
@@ -176,7 +175,7 @@ toggleMenu.addEvent(window, 'load', function(){toggleMenu.init('menu','hidden');
 		</ul>
             <% if(request.isUserInRole("admin")) { %>
 		<ul class="menu" id="adminmenu">
-			<li><a href="adminemailformLink">Email Form</a>
+			<li style="font-size:140%;"><a href="adminemailformLink">Email Form</a>
 				<!--ul>
 					<li><a href="/">Sub category 1a</a></li>
 					<li><a href="/">Sub category 1b</a></li>
