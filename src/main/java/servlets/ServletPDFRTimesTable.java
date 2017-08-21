@@ -155,7 +155,7 @@ public class ServletPDFRTimesTable extends HttpServlet {
         ff.setSize(18);
         
         Font fgrey = FontFactory.getFont(FONT, null, true);
-        fgrey.setColor(BaseColor.LIGHT_GRAY);
+        fgrey.setColor(BaseColor.DARK_GRAY);
         fgrey.setSize(18);
         
         Integer ii = null;
