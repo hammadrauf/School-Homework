@@ -251,7 +251,7 @@ public class ServletPDFRTimesTable extends HttpServlet {
                 tableInner.addCell(cellInner);
             }
             // Add top answer line
-            cellInner = new PdfPCell(new Phrase(" ",ff));
+            cellInner = new PdfPCell(new Phrase("_",fgrey));
             cellInner.setColspan(3);
             cellInner.setBorder(PdfPCell.TOP);
             cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
@@ -320,13 +320,13 @@ public class ServletPDFRTimesTable extends HttpServlet {
                 }
             }
             //Add 1 blank lines for calculations
-            cellInner = new PdfPCell(new Phrase("_",fgrey));
+            cellInner = new PdfPCell(new Phrase(" ",ff));
             cellInner.setColspan(3);
             cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
             cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
             tableInner.addCell(cellInner);
             // Add lower Answer line
-            cellInner = new PdfPCell(new Phrase("_",fgrey));
+            cellInner = new PdfPCell(new Phrase(" ",ff));
             cellInner.setColspan(3);
             cellInner.setBorder(PdfPCell.TOP);
             cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
