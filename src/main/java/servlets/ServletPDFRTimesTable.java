@@ -154,6 +154,10 @@ public class ServletPDFRTimesTable extends HttpServlet {
         ff.setColor(BaseColor.BLACK);
         ff.setSize(18);
         
+        Font fgrey = FontFactory.getFont(FONT, null, true);
+        fgrey.setColor(BaseColor.DARK_GRAY);
+        fgrey.setSize(18);
+        
         Integer ii = null;
         ArrayList<Character> charList = null;
         ArrayList<Integer> oneDataList = ps.matchIntAllCapturingGroups(seq);
@@ -316,13 +320,13 @@ public class ServletPDFRTimesTable extends HttpServlet {
                 }
             }
             //Add 1 blank lines for calculations
-            cellInner = new PdfPCell(new Phrase(" ",ff));
+            cellInner = new PdfPCell(new Phrase("_",fgrey));
             cellInner.setColspan(3);
             cellInner.setBorder(borders ? PdfPCell.NO_BORDER : PdfPCell.BOX);
             cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
             tableInner.addCell(cellInner);
             // Add lower Answer line
-            cellInner = new PdfPCell(new Phrase(" ",ff));
+            cellInner = new PdfPCell(new Phrase("_",fgrey));
             cellInner.setColspan(3);
             cellInner.setBorder(PdfPCell.TOP);
             cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
