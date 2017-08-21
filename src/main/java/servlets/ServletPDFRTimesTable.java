@@ -155,7 +155,7 @@ public class ServletPDFRTimesTable extends HttpServlet {
         ff.setSize(18);
         
         Font fgrey = FontFactory.getFont(FONT, null, true);
-        fgrey.setColor(BaseColor.DARK_GRAY);
+        fgrey.setColor(BaseColor.LIGHT_GRAY);
         fgrey.setSize(18);
         
         Integer ii = null;
@@ -252,11 +252,24 @@ public class ServletPDFRTimesTable extends HttpServlet {
             }
             // Add top answer line
             cellInner = new PdfPCell(new Phrase("_",fgrey));
-            cellInner.setColspan(3);
+            //cellInner.setColspan(3);
             cellInner.setBorder(PdfPCell.TOP);
             cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
             tableInner.addCell(cellInner);
 
+            cellInner = new PdfPCell(new Phrase("_",fgrey));
+            //cellInner.setColspan(3);
+            cellInner.setBorder(PdfPCell.TOP);
+            cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
+            tableInner.addCell(cellInner);
+
+
+            cellInner = new PdfPCell(new Phrase("_",fgrey));
+            //cellInner.setColspan(3);
+            cellInner.setBorder(PdfPCell.TOP);
+            cellInner.setHorizontalAlignment(PdfPCell.ALIGN_CENTER);
+            tableInner.addCell(cellInner);
+            
             if (showAnswers == true) {
                 charList = QuestionData.getIntChars(qd.getAnswer());
                 switch (charList.size()) {
