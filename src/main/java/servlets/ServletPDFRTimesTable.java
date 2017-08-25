@@ -71,6 +71,8 @@ public class ServletPDFRTimesTable extends HttpServlet {
     class MyFooter extends PdfPageEventHelper {
         Font ffont = new Font(Font.FontFamily.UNDEFINED, 5, Font.ITALIC);
         String message = "";
+        String message2 = null;
+        String message3= null;
         Image img = null;
         
         public MyFooter() {
@@ -81,6 +83,7 @@ public class ServletPDFRTimesTable extends HttpServlet {
             } catch (Exception ex) {
                 //Logger.getLogger(servlets.ServletPDFRTimesTable.class.getName()).log(Level.WARNING, ex.getMessage());
                 Logger.getLogger(servlets.ServletPDFRTimesTable.class).warn("Problem loading image.", ex);
+                this.message2 = ex.getMessage();
             }
         }
         
@@ -90,10 +93,24 @@ public class ServletPDFRTimesTable extends HttpServlet {
         }
         
         public void onEndPage(PdfWriter writer, Document document) {
+            try {
+                if (img != null)
+                    document.add(img);
+            } catch (Exception ex) {
+                //Logger.getLogger(servlets.ServletPDFRTimesTable.class.getName()).log(Level.WARNING, ex.getMessage());
+                Logger.getLogger(servlets.ServletPDFRTimesTable.class).warn("Problem adding image.", ex);
+                this.message3 = ex.getMessage();
+            }
             PdfContentByte cb = writer.getDirectContent();
             Phrase header = new Phrase("this is a header", ffont);
-            String m = this.message;
+            String m;
+            m = this.message;
+            if (this.message3 != null)
+                m = this.message3;
+            if (this.message2 != null)
+                m = this.message2;
             Phrase footer = new Phrase(m, ffont);
+
             /*
             ColumnText.showTextAligned(cb, Element.ALIGN_CENTER,
                     header,
@@ -104,13 +121,6 @@ public class ServletPDFRTimesTable extends HttpServlet {
                     footer,
                     (document.right() - document.left()) / 2 + document.leftMargin(),
                     document.bottom() - 10, 0);
-            try {
-                if (img != null)
-                    document.add(img);
-            } catch (Exception ex) {
-                //Logger.getLogger(servlets.ServletPDFRTimesTable.class.getName()).log(Level.WARNING, ex.getMessage());
-                Logger.getLogger(servlets.ServletPDFRTimesTable.class).warn("Problem adding image.", ex);
-            }
         }
     }
     
