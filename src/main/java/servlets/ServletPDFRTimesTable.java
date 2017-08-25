@@ -75,7 +75,7 @@ public class ServletPDFRTimesTable extends HttpServlet {
         public MyFooter() {
             super();
             try {
-                img = Image.getInstance("images/Header1-exp1.png");
+                img = Image.getInstance("./images/Header1-exp1.png");
                 img.scaleToFit(100,100);
             } catch (Exception ex) {
                 ex.printStackTrace();
