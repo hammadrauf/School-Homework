@@ -78,8 +78,9 @@ public class ServletPDFRTimesTable extends HttpServlet {
         public MyFooter() {
             super();
             try {
-                img = Image.getInstance("/images/Header1-exp1.png");
-                img.scaleToFit(100,100);
+                this.img = Image.getInstance("/images/Header1-exp1.png");
+                //img.scaleToFit(100,100);
+                this.img.setAbsolutePosition(5,5);
             } catch (Exception ex) {
                 //Logger.getLogger(servlets.ServletPDFRTimesTable.class.getName()).log(Level.WARNING, ex.getMessage());
                 Logger.getLogger(servlets.ServletPDFRTimesTable.class).warn("Problem loading image.", ex);
@@ -94,8 +95,8 @@ public class ServletPDFRTimesTable extends HttpServlet {
         
         public void onEndPage(PdfWriter writer, Document document) {
             try {
-                if (img != null)
-                    document.add(img);
+                if (this.img != null)
+                    document.add(this.img);
             } catch (Exception ex) {
                 //Logger.getLogger(servlets.ServletPDFRTimesTable.class.getName()).log(Level.WARNING, ex.getMessage());
                 Logger.getLogger(servlets.ServletPDFRTimesTable.class).warn("Problem adding image.", ex);
@@ -206,6 +207,7 @@ public class ServletPDFRTimesTable extends HttpServlet {
         //      document.add(new Paragraph(qd.toStringQuestionAndAnswer()));
         //  }
 
+        
         PdfPTable table = null;
         PdfPCell cell = null;
         int columns = 0;
