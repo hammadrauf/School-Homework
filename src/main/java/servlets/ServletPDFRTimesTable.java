@@ -78,7 +78,7 @@ public class ServletPDFRTimesTable extends HttpServlet {
                 img = Image.getInstance("./images/Header1-exp1.png");
                 img.scaleToFit(100,100);
             } catch (Exception ex) {
-                Logger.getLogger(servlets.ServletPDFRTimesTable.class.getName()).log(Level.ERROR, ex.message());
+                Logger.getLogger(servlets.ServletPDFRTimesTable.class.getName()).log(Level.WARNING, ex.getMessage());
             }
         }
         
@@ -106,7 +106,7 @@ public class ServletPDFRTimesTable extends HttpServlet {
                 if (img != null)
                     document.add(img);
             } catch (Exception ex) {
-                Logger.getLogger(servlets.ServletPDFRTimesTable.class.getName()).log(Level.ERROR, ex.message());
+                Logger.getLogger(servlets.ServletPDFRTimesTable.class.getName()).log(Level.WARNING, ex.getMessage());
             }
         }
     }
