@@ -37,6 +37,7 @@ import com.itextpdf.text.pdf.ColumnText;
 import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfPageEventHelper;
 import com.itextpdf.text.Element;
+import com.itextpdf.text.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -69,9 +70,16 @@ public class ServletPDFRTimesTable extends HttpServlet {
     class MyFooter extends PdfPageEventHelper {
         Font ffont = new Font(Font.FontFamily.UNDEFINED, 5, Font.ITALIC);
         String message = "";
+        Image img = null;
         
         public MyFooter() {
             super();
+            try {
+                img = Image.getInstance("images/Header1-exp1.png");
+                img.scaleToFit(100,100);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
         
         public MyFooter(String message) {
@@ -94,6 +102,8 @@ public class ServletPDFRTimesTable extends HttpServlet {
                     footer,
                     (document.right() - document.left()) / 2 + document.leftMargin(),
                     document.bottom() - 10, 0);
+            if (img != null)
+                document.add(img);
         }
     }
     

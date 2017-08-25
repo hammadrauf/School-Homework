@@ -51,7 +51,7 @@
 <li>JUnit from <a href="http://junit.org">http://junit.org</a></li>
 <li>Base64, included in source code, from <a href="http://iharder.net/base64">http://iharder.net/base64</a></li>
 <li>PDFRenderer from <a href="https://java.net/projects/pdf-renderer">https://java.net/projects/pdf-renderer</a> (Not utilized)</li>
-<li>PDFJS (JavaScript library and source code)</li>
+<li>PDFJS (JavaScript based PDF in HTML) older version from <a href="https://mozilla.github.io/pdf.js/">https://mozilla.github.io/pdf.js/</a>, <a href="https://github.com/mozilla/pdf.js">https://github.com/mozilla/pdf.js</a></li>
 </ol>
  </body>
 </html>
