@@ -102,8 +102,12 @@ public class ServletPDFRTimesTable extends HttpServlet {
                     footer,
                     (document.right() - document.left()) / 2 + document.leftMargin(),
                     document.bottom() - 10, 0);
-            if (img != null)
-                document.add(img);
+            try {
+                if (img != null)
+                    document.add(img);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }
     
