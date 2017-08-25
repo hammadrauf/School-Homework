@@ -46,8 +46,9 @@ import java.io.OutputStream;
 //import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -75,10 +76,11 @@ public class ServletPDFRTimesTable extends HttpServlet {
         public MyFooter() {
             super();
             try {
-                img = Image.getInstance("./images/Header1-exp1.png");
+                img = Image.getInstance("/images/Header1-exp1.png");
                 img.scaleToFit(100,100);
             } catch (Exception ex) {
-                Logger.getLogger(servlets.ServletPDFRTimesTable.class.getName()).log(Level.WARNING, ex.getMessage());
+                //Logger.getLogger(servlets.ServletPDFRTimesTable.class.getName()).log(Level.WARNING, ex.getMessage());
+                Logger.getLogger(servlets.ServletPDFRTimesTable.class).warn("Problem loading image.", ex);
             }
         }
         
@@ -106,7 +108,8 @@ public class ServletPDFRTimesTable extends HttpServlet {
                 if (img != null)
                     document.add(img);
             } catch (Exception ex) {
-                Logger.getLogger(servlets.ServletPDFRTimesTable.class.getName()).log(Level.WARNING, ex.getMessage());
+                //Logger.getLogger(servlets.ServletPDFRTimesTable.class.getName()).log(Level.WARNING, ex.getMessage());
+                Logger.getLogger(servlets.ServletPDFRTimesTable.class).warn("Problem adding image.", ex);
             }
         }
     }
