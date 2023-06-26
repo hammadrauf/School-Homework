@@ -1,9 +1,3 @@
-Originaly Created at SourceForge: https://sourceforge.net/projects/schoolhomework/
+Originaly Created at SourceForge: [https://sourceforge.net/projects/schoolhomework/](https://sourceforge.net/projects/schoolhomework/)
 
-The OpenShift `jbossews` cartridge documentation can be found at:
-
-http://openshift.github.io/documentation/oo_cartridge_guide.html#tomcat
-
-https://developers.openshift.com/getting-started/rhel-centos.html
-
-
+Re-coding of this project with newer underlying technologies: [https://github.com/JuniorSchool/SchoolShorts](https://github.com/JuniorSchool/SchoolShorts)
